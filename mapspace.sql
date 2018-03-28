@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2018 at 09:39 AM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Mar 28, 2018 at 05:10 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 5.6.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,486 @@ SET time_zone = "+00:00";
 --
 -- Database: `mapspace`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `basis_progress`
+--
+
+CREATE TABLE `basis_progress` (
+  `START` int(11) NOT NULL,
+  `END` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `basis_progress`
+--
+
+INSERT INTO `basis_progress` (`START`, `END`) VALUES
+(1, 2),
+(2, 3),
+(3, 4),
+(4, 5),
+(5, 6),
+(6, 7),
+(7, 8),
+(8, 9),
+(9, 10),
+(10, 11),
+(11, 12),
+(12, 13),
+(1, 2),
+(2, 3),
+(3, 4),
+(4, 5),
+(5, 6),
+(6, 7),
+(7, 8),
+(8, 9),
+(9, 10),
+(10, 11),
+(11, 12),
+(12, 13);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `basis_progresstr`
+--
+
+CREATE TABLE `basis_progresstr` (
+  `BASIS_START` int(11) NOT NULL,
+  `BASIS_END` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `basis_progresstr`
+--
+
+INSERT INTO `basis_progresstr` (`BASIS_START`, `BASIS_END`) VALUES
+(1, 2),
+(2, 3),
+(3, 4),
+(4, 5),
+(5, 6),
+(6, 7),
+(7, 8),
+(8, 9),
+(9, 10),
+(10, 11),
+(11, 12),
+(12, 13),
+(1, 2),
+(2, 3),
+(3, 4),
+(4, 5),
+(5, 6),
+(6, 7),
+(7, 8),
+(8, 9),
+(9, 10),
+(10, 11),
+(11, 12),
+(12, 13);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cod_gi`
+--
+
+CREATE TABLE `cod_gi` (
+  `CODGI_ID` int(11) NOT NULL,
+  `CODGI_NAMA` varchar(50) NOT NULL,
+  `CODGI_TEGANGAN` int(11) NOT NULL,
+  `CODGI_KETSTATUS` varchar(50) NOT NULL,
+  `CODGI_KAPASITAS` int(11) NOT NULL,
+  `CODGI_TAHUN` varchar(50) NOT NULL,
+  `CODGI_WILAYAH` varchar(50) NOT NULL,
+  `CODGI_KOORX` varchar(50) NOT NULL,
+  `CODGI_KOORY` varchar(50) NOT NULL,
+  `CREATED_ON` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `CREATED_BY` varchar(20) NOT NULL,
+  `CODGI_DESKRIPSI` varchar(500) DEFAULT NULL,
+  `CODGI_LOKASI` varchar(100) NOT NULL,
+  `CODGI_TUJUAN` varchar(100) NOT NULL,
+  `CODGI_SUMBERDANA` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cod_gi`
+--
+
+INSERT INTO `cod_gi` (`CODGI_ID`, `CODGI_NAMA`, `CODGI_TEGANGAN`, `CODGI_KETSTATUS`, `CODGI_KAPASITAS`, `CODGI_TAHUN`, `CODGI_WILAYAH`, `CODGI_KOORX`, `CODGI_KOORY`, `CREATED_ON`, `CREATED_BY`, `CODGI_DESKRIPSI`, `CODGI_LOKASI`, `CODGI_TUJUAN`, `CODGI_SUMBERDANA`) VALUES
+(8, 'sdfsdf', 123, 'TIDAK AKTIF', 140, '2018', 'gdf', '534542', '865674', '0000-00-00 00:00:00', '', 'sdgdfd', 'bhg', 'hghjgjh', 'hghj'),
+(9, 'ddf', 150, 'AKTIF', 230, '2018', 'kjhjbh', '8643476', '547667454', '0000-00-00 00:00:00', '', 'hjgkgkhj', 'hgjhgjh', 'hghjgjh', 'hghgh');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ext_trafo`
+--
+
+CREATE TABLE `ext_trafo` (
+  `TRAFO_ID` int(11) NOT NULL,
+  `TRAFO_NAMAPROJECT` varchar(500) CHARACTER SET utf8 NOT NULL,
+  `TRAFO_KAPASITAS` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `TRAFO_TAHUNCOD` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `TRAFO_TUJUAN` varchar(500) CHARACTER SET utf8 NOT NULL,
+  `TRAFO_DANA` varchar(500) CHARACTER SET utf8 NOT NULL,
+  `TRAFO_KE` varchar(100) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ext_trafo`
+--
+
+INSERT INTO `ext_trafo` (`TRAFO_ID`, `TRAFO_NAMAPROJECT`, `TRAFO_KAPASITAS`, `TRAFO_TAHUNCOD`, `TRAFO_TUJUAN`, `TRAFO_DANA`, `TRAFO_KE`) VALUES
+(2, 'dfadf', 'd', '2018', 'dw', 'dsds', ''),
+(6, 'ddf', '123', '2018', 'qwerty', 'rty', ''),
+(7, 'abd', '123', '2018', 'qwerty', 'qwerty', '17'),
+(8, 'ddf', '2345', '2019', 'srhdr', 'hdrh', '5');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gardu_hubung`
+--
+
+CREATE TABLE `gardu_hubung` (
+  `GH_ID` int(11) NOT NULL,
+  `GH_KODE_ASET` int(50) NOT NULL,
+  `GH_NAMA` varchar(50) NOT NULL,
+  `GH_ALAMAT` varchar(50) NOT NULL,
+  `GH_OPERATOR` varchar(50) NOT NULL,
+  `GH_STATUS_RC` varchar(50) NOT NULL,
+  `GH_KOORX` varchar(50) NOT NULL,
+  `GH_KOORY` varchar(50) NOT NULL,
+  `GH_AREA` varchar(50) NOT NULL,
+  `CREATED_ON` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `CREATED_BY` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `gardu_hubung`
+--
+
+INSERT INTO `gardu_hubung` (`GH_ID`, `GH_KODE_ASET`, `GH_NAMA`, `GH_ALAMAT`, `GH_OPERATOR`, `GH_STATUS_RC`, `GH_KOORX`, `GH_KOORY`, `GH_AREA`, `CREATED_ON`, `CREATED_BY`) VALUES
+(30, 1102, 'GH0102', 'JL. INDUSTRI RAYA JATAKE / DJONI TEXINDO', 'APD', 'RC', '-6.1959722', '106.5432499', 'Cikupa', '0000-00-00 00:00:00', ''),
+(31, 1103, 'GH0103', 'JL. DAAN MOGOT / PT. YASINTA', 'APD', 'RC', '-6.166849', '106.665203', 'Cengkareng', '0000-00-00 00:00:00', ''),
+(32, 1105, 'GH0105', 'KAMPUNG. MIDI RAYA SERANG KM.18', 'APD', 'RC', '-6.239218', '106.482943', 'Cikupa', '0000-00-00 00:00:00', ''),
+(33, 1108, 'GH0108', 'GUDANG PLN JATINEGARA', 'APD', 'RC', '-6.220829', '106.86888', 'Jatinegara', '0000-00-00 00:00:00', ''),
+(34, 1111, 'GH0111', 'SOGO / JL. MH. TAHMRIN', 'APD', 'RC', '-6.193044', '106.820803', 'Menteng', '0000-00-00 00:00:00', ''),
+(35, 1112, 'GH0112', 'RUKO VILLA RAFLESIA', 'APD', 'RC', '-6.376502', '106.902718', 'Ciracas', '0000-00-00 00:00:00', ''),
+(36, 1115, 'GH0115', 'JL. RAYA SERANG KM.22 / KAW. SRKI PT. KERAMIK ROMA', 'APD', 'RC', '-6.223604', '106.573495', 'Cikupa', '0000-00-00 00:00:00', ''),
+(37, 1116, 'GH0116', 'JL. RAYA SERANG KM.24', 'APD', 'RC', '-6.212362', '106.443861', 'Cikupa', '0000-00-00 00:00:00', ''),
+(38, 1118, 'GH0118', 'JL. AGUNG TIMUR X NO.11 TIGA RAKSA', 'APD', 'RC', '-6.244748', '106.493257', 'Cikupa', '0000-00-00 00:00:00', ''),
+(39, 1121, 'GH0121', 'PER. DUTA KERANJI / BEKASI BARAT', 'APD', 'RC', '-6.225306', '106.973028', 'Pondok Kopi', '0000-00-00 00:00:00', ''),
+(40, 1122, 'GH0122', 'JL. RAYA SERPONG / GOLF BSD', 'APD', 'RC', '-6.273356', '106.65479', 'Serpong', '0000-00-00 00:00:00', ''),
+(41, 1124, 'GH0124', 'JL. RAYA SERPONG / PT. INDAH KIAT', 'APD', 'RC', '-6.245862', '106.648474', 'Serpong', '0000-00-00 00:00:00', ''),
+(42, 1130, 'GH0130', 'JL.MH.THAMRIN KM.4 CIKOKOL TANGERANG', 'APD', 'TIDAK ADA', '-6.206922', '106.62784', 'Cikokol', '0000-00-00 00:00:00', ''),
+(43, 1131, 'GH0131', 'PEKAN RAYA JAKARTA', 'APD', 'RC', '-6.145056', '106.846921', 'Bandengan', '0000-00-00 00:00:00', ''),
+(44, 1136, 'GH0136', 'RADAR AURI CIMANGGIS', 'APD', 'RC', '-6.3725', '106.87041', 'Ciracas', '0000-00-00 00:00:00', ''),
+(45, 1500, 'GH0500', 'JL. H. Abih Pedurenan Jati luhur', 'APD', 'TIDAK ADA', '-6.320652', '106.950906', 'Pondok Gede', '0000-00-00 00:00:00', ''),
+(46, 1501, 'GH0501', 'JL. PULO SIRIH BARAT PERUMAHAN TAMAN GALAXI', 'APD', 'TIDAK ADA', '-6.26102', '106.97098', 'Pondok Gede', '0000-00-00 00:00:00', ''),
+(47, 1600, 'GH0600', 'KAWASAN INDUSTRI OLEX / PT SMS', 'APD', 'RC', '-6.2206111', '106.4674444', 'Cikupa', '0000-00-00 00:00:00', ''),
+(48, 1601, 'GH0601', 'GREEN COVE BSD CITY', 'APD', 'RC', '-6.300228', '106.645612', 'Serpong', '0000-00-00 00:00:00', ''),
+(49, 1605, 'GH0605', 'TANGERANG CITY', 'APD', 'TIDAK ADA', '-6.193888', '106.634125', 'Cikokol', '0000-00-00 00:00:00', ''),
+(50, 1606, 'GH0606', 'PT INDAH JAYA', 'APD', 'TIDAK ADA', '-6.221428', '106.583494', 'Cikokol', '0000-00-00 00:00:00', ''),
+(51, 1002, 'GH0002', 'JL. KALI SODETAN / WADUK', 'APD', 'RC', '-6.166453728', '106.7802718', 'Menteng', '0000-00-00 00:00:00', ''),
+(52, 1003, 'GH0003', 'JL. GEDUNG POLA / BELAKANG GI', 'APD', 'RC', '-6.20451', '106.844447', 'Menteng', '0000-00-00 00:00:00', ''),
+(53, 1005, 'GH0005', 'JL.MASJID AT TAQWA LAPANGAN ROSE', 'APD', 'RC', '-6.223831', '106.855391', 'Jatinegara', '0000-00-00 00:00:00', ''),
+(54, 1008, 'GH0008', 'JL. KALI BARU CILINCING', 'APD', 'TIDAK ADA', '-6.105138', '106.922843', 'Marunda', '0000-00-00 00:00:00', ''),
+(55, 1009, 'GH0009', 'JL.MESJID AL MAKMUR PASAR MINGGU', 'APD', 'RC', '-6.284797', '106.845217', 'Lenteng Agung', '0000-00-00 00:00:00', ''),
+(56, 1010, 'GH0010', 'JL. HANG TUAH RAYA', 'APD', 'RC', '-6.238972047', '106.7966869', 'Bulungan', '0000-00-00 00:00:00', ''),
+(57, 1011, 'GH0011', 'JL. MUARA KARANG', 'APD', 'RC', '-6.11194', '106.7719', 'Bandengan', '0000-00-00 00:00:00', ''),
+(58, 1012, 'GH0012', 'JL. BUNGUR BESAR', 'APD', 'RC', '-6.16003', '106.83951', 'Menteng', '0000-00-00 00:00:00', ''),
+(59, 1013, 'GH0013', 'JL. BUDI KEMULIAAN', 'APD', 'RC', '-6.181399', '106.821836', 'Menteng', '0000-00-00 00:00:00', ''),
+(60, 1014, 'GH0014', 'STA TANAH ABANG / JL.KEBON JATI', 'APD', 'RC', '-6.188346', '106.809718', 'Menteng', '0000-00-00 00:00:00', ''),
+(61, 1015, 'GH0015', 'JL. BATU CEPER IV', 'APD', 'RC', '-6.16216', '106.82093', 'Menteng', '0000-00-00 00:00:00', ''),
+(62, 1016, 'GH0016', 'JL. LAPANGAN BANTENG SELATAN', 'APD', 'RC', '-6.17411', '106.83793', 'Menteng', '0000-00-00 00:00:00', ''),
+(63, 1017, 'GH0017', 'JL. PULO LENTUT KAWASAN INDUSTRI PULOGADUNG', 'APD', 'TIDAK ADA', '-6.201052', '106.918033', 'Cempaka Putih', '0000-00-00 00:00:00', ''),
+(64, 1019, 'GH0019', 'Mall Of Indonesia', 'APD', 'TIDAK ADA', '-6.15104', '106.892024', 'Tanjung Priok', '0000-00-00 00:00:00', ''),
+(65, 1020, 'GH0020', 'JL. TANJUNG KARANG', 'APD', 'RC', '-6.200933', '106.822672', 'Menteng', '0000-00-00 00:00:00', ''),
+(66, 1021, 'GH0021', 'JL. OLIMO HAYAM WURUK', 'APD', 'RC', '-6.150302977', '106.8172757', 'Bandengan', '0000-00-00 00:00:00', ''),
+(67, 1023, 'GH0023', 'JL. PEGANGSAAN 2', 'APD', 'RC', '-6.147402', '106.916973', 'Tanjung Priok', '0000-00-00 00:00:00', ''),
+(68, 1024, 'GH0024', 'JL. SUNTER UTARA', 'APD', 'RC', '-6.13508', '106.85988', 'Tanjung Priok', '0000-00-00 00:00:00', ''),
+(69, 1025, 'GH0025', 'PERNIAGAAN TIMUR', 'APD', 'RC', '-6.14028', '106.8075', 'Bandengan', '0000-00-00 00:00:00', ''),
+(70, 1026, 'GH0026', 'JL. PELABUHAN SUNDA KELAPA', 'APD', 'RC', '-6.12313', '106.80951', 'Bandengan', '0000-00-00 00:00:00', ''),
+(71, 1027, 'GH0027', 'CAKUNG RAIN', 'APD', 'TIDAK ADA', '-6.167468', '106.929865', 'Marunda', '0000-00-00 00:00:00', ''),
+(72, 1028, 'GH0028', 'BELAKANG MALL CIJANTUNG', 'APD', 'TIDAK ADA', '-6.3134004', '106.8611759', 'Ciracas', '0000-00-00 00:00:00', ''),
+(73, 1096, 'GH0096', 'KOMPLEK MPR/DPR', 'APD', 'RC', '-6.210964242', '106.7977598', 'Bulungan', '0000-00-00 00:00:00', ''),
+(74, 1139, 'GH0139', 'JL.WIBAWA MUKTI VI', 'APD', 'RC', '-6.28943', '106.94497', 'Pondok Gede', '0000-00-00 00:00:00', ''),
+(75, 1141, 'GH0141', 'JL. PAJAJARAN PACUAN KUDA PAMULANG', 'APD', 'RC', '-6.334941192', '106.7397506', 'Ciputat', '0000-00-00 00:00:00', ''),
+(76, 1143, 'GH0143', 'JL. PANTAI INDAH KAPUK', 'APD', 'RC', '-6.11555', '106.75553', 'Bandengan', '0000-00-00 00:00:00', ''),
+(77, 1145, 'GH0145', 'PAM PEJOMPNGAN', 'APD', 'RC', '-6.204449', '106.808082', 'Menteng', '0000-00-00 00:00:00', ''),
+(78, 1146, 'GH0146', 'PERUMAHAN PURI KARTIKA', 'APD', 'RC', '-6.231090337', '106.6964474', 'Bintaro', '0000-00-00 00:00:00', ''),
+(79, 1148, 'GH0148', 'JL. BUDI DHARMA', 'APD', 'TIDAK ADA', '-6.115806', '106.930574', 'Marunda', '0000-00-00 00:00:00', ''),
+(80, 1177, 'GH0177', 'JL. BRAWIJAYA VII KEBAYORAN BARU', 'APD', 'RC', '-6.251109009', '106.8056992', 'Bulungan', '0000-00-00 00:00:00', ''),
+(81, 1178, 'GH0178', 'JL. PECENONGAN RAYA', 'APD', 'RC', '-6.165985', '106.826845', 'Menteng', '0000-00-00 00:00:00', ''),
+(82, 1179, 'GH0179', 'JL. KP. RUMPIN', 'APD', 'TIDAK ADA', '-6.374378', '106.603632', 'Serpong', '0000-00-00 00:00:00', ''),
+(83, 1420, 'GH0503', '', 'APD', 'RC', '-6.262734', '106.812477', 'Bulungan', '0000-00-00 00:00:00', ''),
+(84, 1609, 'GH0421', 'MASJID IAIN CIPUTAT', 'APD', 'TIDAK ADA', '-6.309773', '106.7558', 'Ciputat', '0000-00-00 00:00:00', ''),
+(85, 1502, 'GH0502', 'JL.MATRAMAN RAYA', 'APD', 'RC', '-6.20031', '106.85185', 'Menteng', '0000-00-00 00:00:00', ''),
+(86, 1607, 'GH0607', 'PENGGILINGAN', 'APD', 'RC', '-6.20329146', '106.9319491', 'Pondok Kopi', '0000-00-00 00:00:00', ''),
+(87, 1098, 'GH0098', 'KAWASAN BANDARA SOETA', 'APD', 'TIDAK ADA', '-6.1323927', '106.6398749', 'Cengkareng', '0000-00-00 00:00:00', ''),
+(88, 1099, 'GH0099', 'KANTOR PT PLN P3B', 'APD', 'TIDAK ADA', '-6.348642368', '106.7857542', 'Ciputat', '0000-00-00 00:00:00', ''),
+(89, 1204, 'GH0204', 'TANJUNG PASIR KEP.SERIBU', 'APD', 'TIDAK ADA', '-6.014922', '106.678212', 'Bandengan', '0000-00-00 00:00:00', ''),
+(90, 1220, 'GH0220', 'JL. MANGGA BESAR RAYA', 'APD', 'RC', '-6.13265', '106.830185', 'Bandengan', '0000-00-00 00:00:00', ''),
+(91, 1308, 'GH0308', 'TAMAN ISMAIL MARJUKI (TIM) JL. RAYA CIKINI', 'APD', 'RC', '-6.189963', '106.838983', 'Menteng', '0000-00-00 00:00:00', ''),
+(92, 1006, 'GH0006', 'BUNGUN CIPTA SARANA / JATINEGARA KAUM', 'APD', 'TIDAK ADA', '-6.20486', '106.90575', 'Jatinegara', '0000-00-00 00:00:00', ''),
+(93, 1031, 'GH0031', 'JL. H. NAWI GG. MADRASAH', 'APD', 'RC', '-6.15976', '106.47464', 'Bulungan', '0000-00-00 00:00:00', ''),
+(94, 1192, 'GH0192', 'JL. NIAGA HIJAU RAYA', 'APD', 'RC', '-6.28534268', '106.7783943', 'Bulungan', '0000-00-00 00:00:00', ''),
+(95, 1236, 'GH0236', 'JL. Kedoya Angsana', 'APD', 'RC', '-6.189397431', '106.7669144', 'Kebon Jeruk', '0000-00-00 00:00:00', ''),
+(96, 1076, 'GH0076', 'ASTRA HONDA MOTOR SUNTER', 'APD', 'RC', '-6.161629', '106.881358', 'Tanjung Priok', '0000-00-00 00:00:00', ''),
+(97, 1079, 'GH0079', 'PT. PANGERAN KARANG', 'APD', 'TIDAK ADA', '-6.169814', '106.919022', 'Marunda', '0000-00-00 00:00:00', ''),
+(98, 1094, 'GH0094', 'JL. JAWA BLOK C KBN CACING', 'APD', 'TIDAK ADA', '-6.146957', '106.936084', 'Marunda', '0000-00-00 00:00:00', ''),
+(99, 1140, 'GH0140', 'JL. YUSIN CIJANTUNG', 'APD', 'RC', '-6.313637', '106.864217', 'Ciracas', '0000-00-00 00:00:00', ''),
+(100, 1273, 'GH0273', 'LAPANGAN TENNIS BINTARO SEKTOR IX', 'APD', 'RC', '-6.281215562', '106.7126694', 'Bintaro', '0000-00-00 00:00:00', ''),
+(101, 1038, 'GH0038', 'KOMPLEK GED. MAGGALA WANA BAKTI / DET. KEHUTANAN', 'APD', 'RC', '-6.206548558', '106.8001631', 'Bulungan', '0000-00-00 00:00:00', ''),
+(102, 1004, 'GH0004', 'JL.SUNTER KEMAYORAN', 'APD', 'RC', '-6.16067', '106.87296', 'Tanjung Priok', '0000-00-00 00:00:00', ''),
+(103, 1150, 'GH0150', 'JL. RATNA PONDOK GEDE', 'APD', 'RC', '-6.27934', '106.95112', 'Pondok Gede', '0000-00-00 00:00:00', ''),
+(104, 1151, 'GH0151', 'JL. RAYA PASAR KEMIS / PT. IKAD', 'APD', 'RC', '-6.1739', '106.55395', 'Cikupa', '0000-00-00 00:00:00', ''),
+(105, 1152, 'GH0152', 'ROXY MAS / JL. HASYIM ASHARI', 'APD', 'RC', '-6.16693', '106.80472', 'Menteng', '0000-00-00 00:00:00', ''),
+(106, 1155, 'GH0155', 'JL. PALEM MANIS RAYA DS. GANDA SARI', 'APD', 'RC', '-6.211031', '106.588875', 'Cikokol', '0000-00-00 00:00:00', ''),
+(107, 1156, 'GH0156', 'JL. KALI SABI / JABATEK CIKOKOL', 'APD', 'TIDAK ADA', '-6.199925414', '106.5932475', 'Cikokol', '0000-00-00 00:00:00', ''),
+(108, 1157, 'GH0157', 'UNIV KRISNA DWI PAYANA PONDOK GEDE', 'APD', 'RC', '-6.263851', '106.906645', 'Pondok Gede', '0000-00-00 00:00:00', ''),
+(109, 1159, 'GH0159', 'JL. RAYA SERANG KM.13 KP. CEREWET', 'APD', 'RC', '-6.207552', '106.538941', 'Cikupa', '0000-00-00 00:00:00', ''),
+(110, 1160, 'GH0160', 'JL. TELESONIC / PT. IKI CABLE JATAKE', 'APD', 'TIDAK ADA', '-6.200027', '106.558049', 'Cikokol', '0000-00-00 00:00:00', ''),
+(111, 1161, 'GH0161', 'JL. RAYA PASAR KEMIS / JABATEX', 'APD', 'TIDAK ADA', '-6.18268', '106.5707', 'Teluk Naga', '0000-00-00 00:00:00', ''),
+(112, 1162, 'GH0162', 'JL. GAJAH TUNGGAL / PT. HANDAYANI', 'APD', 'TIDAK ADA', '-6.196502', '106.566702', 'Cikokol', '0000-00-00 00:00:00', ''),
+(113, 1163, 'GH0163', 'JL. RAYA LEGOK / PT. DOSON', 'APD', 'TIDAK ADA', '-6.276245', '106.600766', 'Serpong', '0000-00-00 00:00:00', ''),
+(114, 1164, 'GH0164', 'JL. TEBAT DALAM', 'APD', 'RC', '-6.22551', '106.84841', 'Jatinegara', '0000-00-00 00:00:00', ''),
+(115, 1165, 'GH0165', 'RAYA SERPONG / PDAM', 'APD', 'RC', '-6.326951', '106.667907', 'Serpong', '0000-00-00 00:00:00', ''),
+(116, 1166, 'GH0166', 'GRAND INDONESIA / JL.KEBON KACANG ( SEIBU )', 'APD', 'RC', '-6.195275', '106.822305', 'Menteng', '0000-00-00 00:00:00', ''),
+(117, 1170, 'GH0170', 'UNIVERSITAS GUNA DHARMA', 'APD', 'RC', '-6.35449', '106.8415', 'Ciracas', '0000-00-00 00:00:00', ''),
+(118, 1171, 'GH0171', 'JL. SULTAN AGUNG / LAND MARK', 'APD', 'RC', '-6.205141', '106.826182', 'Menteng', '0000-00-00 00:00:00', ''),
+(119, 1172, 'GH0172', 'JL. RAYA MENCENG TEGAL ALUR', 'APD', 'RC', '-6.129562', '106.71881', 'Cengkareng', '0000-00-00 00:00:00', ''),
+(120, 1173, 'GH0173', 'JL. SELAPAJANG BATU CEPER TANGERANG', 'APD', 'RC', '-6.121268', '106.632383', 'Teluk Naga', '0000-00-00 00:00:00', ''),
+(121, 1174, 'GH0174', 'HOTEL MERIDIEN / JL. JEND SUDIRMAN', 'APD', 'RC', '-6.213115', '106.819161', 'Menteng', '0000-00-00 00:00:00', ''),
+(122, 1175, 'GH0175', 'HARAPAN INDAH', 'APD', 'RC', '-6.18115', '106.9732', 'Marunda', '0000-00-00 00:00:00', ''),
+(123, 1176, 'GH0176', 'PT.IGI / JL.RAYA BEKASI', 'APD', 'TIDAK ADA', '-6.180413', '106.918601', 'Marunda', '0000-00-00 00:00:00', ''),
+(124, 1247, 'GH0247', 'JL. JANUR KUNING KELAPA GADING', 'APD', 'RC', '-6.161286', '106.903785', 'Tanjung Priok', '0000-00-00 00:00:00', ''),
+(125, 1248, 'GH0248', 'JL. PERUMAHAN PONDOK UNGU PERMAI', 'APD', 'RC', '-6.177421', '107.002095', 'Marunda', '0000-00-00 00:00:00', ''),
+(126, 1249, 'GH0249', 'KAMPUNG BOJONG', 'APD', 'RC', '-6.11675', '106.994492', 'Marunda', '0000-00-00 00:00:00', ''),
+(127, 1258, 'GH0258', 'PT. BOGASARI / JL. CILINCING', 'APD', 'TIDAK ADA', '-6.1082', '106.90726', 'Marunda', '0000-00-00 00:00:00', ''),
+(128, 1260, 'GH0260', 'APARTEMEN KUNINGAN', 'APD', 'RC', '-6.216092', '106.837354', 'Menteng', '0000-00-00 00:00:00', ''),
+(129, 1266, 'GH0266', 'WISMA METROPOLINTAN / JL.JEND SUDIRMAN', 'APD', 'RC', '-6.215517', '106.819033', 'Menteng', '0000-00-00 00:00:00', ''),
+(130, 1271, 'GH0271', 'VILLLA BINTARO INDAH jl.Sumatera', 'APD', 'RC', '-6.295846954', '106.7052343', 'Bintaro', '0000-00-00 00:00:00', ''),
+(131, 1272, 'GH0272', 'JL. GUNUNG SAHARI XII', 'APD', 'RC', '-6.14856', '106.83558', 'Bandengan', '0000-00-00 00:00:00', ''),
+(132, 1276, 'GH0276', 'MEGA KUNINGAN', 'APD', 'RC', '-6.2334', '106.82779', 'Menteng', '0000-00-00 00:00:00', ''),
+(133, 1277, 'GH0277', 'MEGA KUNINGAN', 'APD', 'RC', '-6.227873', '106.827562', 'Menteng', '0000-00-00 00:00:00', ''),
+(134, 1279, 'GH0279', 'JL. BULEVARD KELAPA GADING', 'APD', 'RC', '-6.14403', '106.89608', 'Tanjung Priok', '0000-00-00 00:00:00', ''),
+(135, 1280, 'GH0280', 'PT. BAKRI / JL.KALIABANG', 'APD', 'TIDAK ADA', '-6.19665', '106.97916', 'Marunda', '0000-00-00 00:00:00', ''),
+(136, 1289, 'GH0289', 'JL. KH WAHID HASYIM', 'APD', 'RC', '-6.187648', '106.817456', 'Menteng', '0000-00-00 00:00:00', ''),
+(137, 1300, 'GH0300', 'JL.KARET / PASAR BARU', 'APD', 'RC', '-6.207', '106.81779', 'Menteng', '0000-00-00 00:00:00', ''),
+(138, 1301, 'GH0301', 'KRAMAT JAYA /KTM', 'APD', 'TIDAK ADA', '-6.120276', '106.917645', 'Marunda', '0000-00-00 00:00:00', ''),
+(139, 1303, 'GH0303', 'SEASON CITY JL LATUMENTEN NO.33', 'APD', 'RC', '-6.153413', '106.796422', 'Bandengan', '0000-00-00 00:00:00', ''),
+(140, 1305, 'GH0305', 'JL TAMAN RASUNA KUNINGAN', 'APD', 'RC', '-6.219114', '106.834455', 'Menteng', '0000-00-00 00:00:00', ''),
+(141, 1306, 'GH0306', 'CENTRAL PARK TANJUNG DUREN', 'APD', 'RC', '-6.176257', '106.789845', 'Menteng', '0000-00-00 00:00:00', ''),
+(142, 1307, 'GH0307', 'RUSUNAMI PERUMNAS', 'APD', 'RC', '-6.133021', '106.845536', 'Bandengan', '0000-00-00 00:00:00', ''),
+(143, 1309, 'GH0309', 'TAMAN MENTENG JL. HOS COKROAMINOTO MENTENG', 'APD', 'RC', '-6.195825', '106.829363', 'Menteng', '0000-00-00 00:00:00', ''),
+(144, 1310, 'GH0310', 'GRAND RASUNA SAID JL. SATRIO KUNINGAN', 'APD', 'RC', '-6.222921', '106.828683', 'Menteng', '0000-00-00 00:00:00', ''),
+(145, 1312, 'GH0312', 'JL. AHMAD YANI CEMPAKA PUTIH', 'APD', 'RC', '-6.18138', '106.875219', 'Cempaka Putih', '0000-00-00 00:00:00', ''),
+(146, 1395, 'GH0395', 'JL GADING INDAH UTARA', 'APD', 'RC', '-6.159196', '106.913503', 'Tanjung Priok', '0000-00-00 00:00:00', ''),
+(147, 1401, 'GH0401', 'KOMPLEK GI SENAYAN', 'APD', 'RC', '-6.219123563', '106.7950561', 'Bulungan', '0000-00-00 00:00:00', ''),
+(148, 1403, 'GH0403', '\"PolAirud', ' Pondok Cabe\"', 'APD', 'RC', '-6.331715', '106.761478', '0000-00-00 00:00:00', ''),
+(149, 1404, 'GH0404', 'JL.HASIM ASHARI CILEDUK', 'APD', 'RC', '-6.224264403', '106.703861', 'Bintaro', '0000-00-00 00:00:00', ''),
+(150, 1406, 'GH0406', 'GANDARIA MAIN STREET', 'APD', 'RC', '-6.245596', '106.784064', 'Bulungan', '0000-00-00 00:00:00', ''),
+(151, 1409, 'GH0409', 'JL KEUANGAN FATMAWATI', 'APD', 'RC', '-6.287331577', '106.7949059', 'Bulungan', '0000-00-00 00:00:00', ''),
+(152, 1412, 'GH0412', 'KOMLEK PERDATAM JOGLO ULUJAMI KEBAYORAN LAMA', 'APD', 'TIDAK ADA', '-6.240826', '106.764184', 'Bintaro', '0000-00-00 00:00:00', ''),
+(153, 1413, 'GH0413', 'JL. RAYA PALUMANG 2', 'APD', 'RC', '-6.322222', '106.708116', 'Ciputat', '0000-00-00 00:00:00', ''),
+(154, 1416, 'GH0416', 'KAWASAN CIPUTRA WORLD / AGP', 'APD', 'TIDAK ADA', '-6.223561', '106.822605', 'Menteng', '0000-00-00 00:00:00', ''),
+(155, 1418, 'GH0418', 'JL.RY CIRACAS', 'APD', 'TIDAK ADA', '-6.32617', '106.87677', 'Ciracas', '0000-00-00 00:00:00', ''),
+(156, 1225, 'GH0225', 'JL.LETJEN SUPRAPTO / CEMPAKA PUTIH UTARA', 'APD', 'RC', '-6.16807', '106.85592', 'Cempaka Putih', '0000-00-00 00:00:00', ''),
+(157, 1226, 'GH0226', 'JL. MANGGA DUA RAYA', 'APD', 'RC', '-6.138111', '106.82995', 'Bandengan', '0000-00-00 00:00:00', ''),
+(158, 1227, 'GH0227', 'JL.INPEKSI SALURAN ( PINTU AIR ) HALIM P K', 'APD', 'RC', '-6.249121', '106.95744', 'Jatinegara', '0000-00-00 00:00:00', ''),
+(159, 1230, 'GH0230', 'JL MT HARYONO / GEDUNG CAWANG KENCANA', 'APD', 'RC', '-6.25465', '106.87034', 'Kramat Jati', '0000-00-00 00:00:00', ''),
+(160, 1233, 'GH0233', 'PERUM. GADING SERPONG', 'APD', 'RC', '-6.243068', '106.631541', 'Serpong', '0000-00-00 00:00:00', ''),
+(161, 1234, 'GH234A', 'STASIUN TPI TMII', 'APD', 'TIDAK ADA', '-6.294094', '106.889744', 'Pondok Gede', '0000-00-00 00:00:00', ''),
+(162, 1235, 'GH0235', 'JL. CIRARAB LEGOK', 'APD', 'RC', '-6.327218', '106.568576', 'Serpong', '0000-00-00 00:00:00', ''),
+(163, 1238, 'GH0238', 'TERMINAL PETI KEMAS / JL.DIGUL KOJA UTARA', 'APD', 'TIDAK ADA', '-6.105747', '106.9034', 'Marunda', '0000-00-00 00:00:00', ''),
+(164, 1239, 'GH0239', 'RUMAH SUSUN BIDARA CINA CAWANG', 'APD', 'RC', '-6.24279', '106.86742', 'Jatinegara', '0000-00-00 00:00:00', ''),
+(165, 1007, 'GH0007', 'JL. LIMO KEBAYORAN BARU', 'APD', 'RC', '-6.226408182', '106.7821386', 'Bulungan', '0000-00-00 00:00:00', ''),
+(166, 1154, 'GH0154', 'HOTEL HILTON SEMANGGI', 'APD', 'RC', '-6.218024995', '106.8087783', 'Bulungan', '0000-00-00 00:00:00', ''),
+(167, 1018, 'GH0018', 'JL. PERINTIS KEMERDEKAAN / DEPAN ASMI', 'APD', 'RC', '-6.173054', '106.889133', 'Cempaka Putih', '0000-00-00 00:00:00', ''),
+(168, 1191, 'GH0191', 'DERMAGA BUARAN', 'APD', 'RC', '-6.220148', '106.923975', 'Pondok Kopi', '0000-00-00 00:00:00', ''),
+(169, 1237, 'GH0237', 'JL.RAYA PERANCIS PERUMAHAN VILLA TAMAN BANDARA', 'APD', 'TIDAK ADA', '-6.236978', '106.828939', 'Menteng', '0000-00-00 00:00:00', ''),
+(170, 1402, 'GH0402', 'JL. KEMANG TIMUR V', 'APD', 'RC', '-6.262835094', '106.824421', 'Bulungan', '0000-00-00 00:00:00', ''),
+(171, 1419, 'GH0419', 'JL. CASABLANCA RAYA', 'APD', 'TIDAK ADA', '-6.224078', '106.843521', 'Jatinegara', '0000-00-00 00:00:00', ''),
+(172, 1022, 'GH0022', 'PLAZA KUNINGAN / JL. RASUNA SAID', 'APD', 'RC', '-6.217103', '106.831605', 'Menteng', '0000-00-00 00:00:00', ''),
+(173, 1037, 'GH0037', 'JL. JURUMUDI DAAN MOGOT', 'APD', 'RC', '-6.161744', '106.677442', 'Cengkareng', '0000-00-00 00:00:00', ''),
+(174, 1087, 'GH0087', 'PAM PONDOK KELAPA KALI MALANG', 'APD', 'RC', '-6.25013', '106.93161', 'Pondok Kopi', '0000-00-00 00:00:00', ''),
+(175, 1135, 'GH0135', 'JL. KAPUK SMP 122', 'APD', 'RC', '-6.136533', '106.763617', 'Bandengan', '0000-00-00 00:00:00', ''),
+(176, 1097, 'GH0097', 'JL. DAAN MOGOT / PELITA SENGKARENG PAPER', 'APD', 'RC', '-6.157857', '106.687575', 'Cengkareng', '0000-00-00 00:00:00', ''),
+(177, 1039, 'GH0234', 'JL. RAYA KEMUNING PRIUK JAYA', 'APD', 'RC', '-6.136608', '106.634728', 'Teluk Naga', '0000-00-00 00:00:00', ''),
+(178, 1144, 'GH0144', 'BINTARO RAYA SEKTOR 1', 'APD', 'RC', '-6.281978069', '106.7118433', 'Bintaro', '0000-00-00 00:00:00', ''),
+(179, 1158, 'GH0158', 'STA KA TANJUNG BARAT', 'APD', 'TIDAK ADA', '-6.309431', '106.8385', 'Lenteng Agung', '0000-00-00 00:00:00', ''),
+(180, 1182, 'GH0182', 'GEDUNG SEMPOERNA / JL. SOEDIRMAN', 'APD', 'RC', '-6.217362', '106.817447', 'Menteng', '0000-00-00 00:00:00', ''),
+(181, 1183, 'GH0183', 'JL. ASIA AFRIKA PLAZA SENAYAN', 'APD', 'RC', '-6.223933769', '106.8001309', 'Bulungan', '0000-00-00 00:00:00', ''),
+(182, 1184, 'GH0184', 'BURSA EFEK JAKARTA SUDIRMAN', 'APD', 'RC', '-6.223571139', '106.8083063', 'Bulungan', '0000-00-00 00:00:00', ''),
+(183, 1185, 'GH0185', 'RS JANTUNG HARAPAN KITA', 'APD', 'RC', '-6.18538', '106.79899', 'Menteng', '0000-00-00 00:00:00', ''),
+(184, 1186, 'GH0186', 'DEPT. KEUANGAN / JL.DR.WAHIDIN', 'APD', 'RC', '-6.17179', '106.8379', 'Menteng', '0000-00-00 00:00:00', ''),
+(185, 1187, 'GH0187', 'PERTAMINA / JL.KRAMAT RAYA', 'APD', 'RC', '-6.186438', '106.845948', 'Menteng', '0000-00-00 00:00:00', ''),
+(186, 1189, 'GH0189', 'KP. KANDANG SAPI ROROTAN', 'APD', 'RC', '-6.15779', '106.95325', 'Marunda', '0000-00-00 00:00:00', ''),
+(187, 1190, 'GH0190', 'JL. CURUG RAYA / TELKOM', 'APD', 'RC', '-6.252771', '106.561616', 'Serpong', '0000-00-00 00:00:00', ''),
+(188, 1194, 'GH0194', 'TEKNO PARK RAYA SERPONG', 'APD', 'RC', '-6.340619', '106.673842', 'Serpong', '0000-00-00 00:00:00', ''),
+(189, 1196, 'GH0196', 'LIPPO KARAWACI / PERUM. PARAHIYANGAN', 'APD', 'RC', '-6.225921', '106.595245', 'Serpong', '0000-00-00 00:00:00', ''),
+(190, 1200, 'GH0200', 'JL. RAYA KUKUN KP. PICUNG PASAR KEMIS', 'APD', 'RC', '-6.061158', '106.510102', 'Teluk Naga', '0000-00-00 00:00:00', ''),
+(191, 1201, 'GH0201', 'JL. RAYA PASAR KEMIS / ARGARINDO', 'APD', 'RC', '-6.181422', '106.554961', 'Cikupa', '0000-00-00 00:00:00', ''),
+(192, 1202, 'GH0202', 'JL. RAYA SERANG KEC. BALARAJA', 'APD', 'RC', '-6.189729', '106.461456', 'Cikupa', '0000-00-00 00:00:00', ''),
+(193, 1203, 'GH0203', 'PERUM GADING GRIYA LESTARI', 'APD', 'TIDAK ADA', '-6.141067', '106.921278', 'Marunda', '0000-00-00 00:00:00', ''),
+(194, 1213, 'GH0213', 'JL. TUBAGUS ANGKE', 'APD', 'RC', '-6.14777', '106.78108', 'Bandengan', '0000-00-00 00:00:00', ''),
+(195, 1214, 'GH0214', 'JL. PINTU KECIL', 'APD', 'RC', '-6.13708', '106.81184', 'Bandengan', '0000-00-00 00:00:00', ''),
+(196, 1219, 'GH0219', 'JL. DAAN MOGOT / PT. IWWI', 'APD', 'RC', '-6.159676', '106.684064', 'Cengkareng', '0000-00-00 00:00:00', ''),
+(197, 1221, 'GH0221', 'KAMPUNG. BUBULAK RAYA SERANG KM.12', 'APD', 'TIDAK ADA', '-6.13412', '106.32262', 'Cikupa', '0000-00-00 00:00:00', ''),
+(198, 1222, 'GH0222', 'PERUM. MODERN LAND', 'APD', 'TIDAK ADA', '-6.193443', '106.643126', 'Cikokol', '0000-00-00 00:00:00', ''),
+(199, 1610, 'GH0608', 'JL. BOULEVARD PALEM SEMI KARAWACI', 'APD', 'TIDAK ADA', '-6.218543', '106.615931', 'Cikokol', '0000-00-00 00:00:00', ''),
+(200, 1126, 'GH0126', 'BANDARA SUKARNO HATTA', 'APD', 'RC', '-6.128789', '106.650508', 'Teluk Naga', '0000-00-00 00:00:00', ''),
+(201, 1604, 'GH0604', 'Kawasan Industri Bonen', 'APD', 'TIDAK ADA', '-6.205237', '106.492994', 'Cikupa', '0000-00-00 00:00:00', ''),
+(202, 1085, 'GH221A', 'ALAM SUTERA', 'APD', 'TIDAK ADA', '-6.231771', '106.656877', 'Serpong', '0000-00-00 00:00:00', ''),
+(203, 1415, 'GH0415', 'KOMPLEK RINDAM CONDET', 'APD', 'RC', '-6.297649', '106.855396', 'Kramat Jati', '0000-00-00 00:00:00', ''),
+(204, 1608, 'GH0424', 'JL. ARYA PUTRA JOMBANG SUDIMARA', 'APD', 'RC', '-6.302789256', '106.7168858', 'Ciputat', '0000-00-00 00:00:00', ''),
+(205, 1426, 'GH0426', 'JL. RAYA PASAR MINGGU', 'APD', 'TIDAK ADA', '-6.244799', '106.842863', 'Lenteng Agung', '0000-00-00 00:00:00', ''),
+(206, 1029, 'GH0029', 'BRI / JL.JENDRAL SUDIRMAN', 'APD', 'RC', '-6.21703', '106.81309', 'Menteng', '0000-00-00 00:00:00', ''),
+(207, 1030, 'GH0030', 'KAWASAN BISNIS TERPADU CBD PLUIT', 'APD', 'RC', '-6.12719', '106.78915', 'Bandengan', '0000-00-00 00:00:00', ''),
+(208, 1032, 'GH0032', 'JL.ENGGANO TANJUNG PRIOK', 'APD', 'RC', '-6.10985', '106.888067', 'Tanjung Priok', '0000-00-00 00:00:00', ''),
+(209, 1153, 'GH0153', 'JL. SINTA KARAWACI / PLAZA CIMONE', 'APD', 'TIDAK ADA', '-6.193419', '106.616129', 'Cikokol', '0000-00-00 00:00:00', ''),
+(210, 1481, 'GH0481', 'PERUMNAS TAMAN SURYA 2', 'APD', 'RC', '-6.135062977', '106.7153884', 'Cengkareng', '0000-00-00 00:00:00', ''),
+(211, 1033, 'GH0033', 'PERUM GARDEN CITY', 'APD', 'TIDAK ADA', '-6.17673', '106.95489', 'Marunda', '0000-00-00 00:00:00', ''),
+(212, 1034, 'GH024B', 'JL. APARTEMENT SALEMBA TENGAH', 'APD', 'RC', '-6.194942', '106.85616', 'Menteng', '0000-00-00 00:00:00', ''),
+(213, 1035, 'GH0035', 'MALL TAMAN ANGGREK GROGOL', 'APD', 'RC', '-6.17975', '106.79286', 'Menteng', '0000-00-00 00:00:00', ''),
+(214, 1036, 'GH0036', 'JL. RAYA BEKASI KM.25', 'APD', 'RC', '-6.185691', '106.95401', 'Marunda', '0000-00-00 00:00:00', ''),
+(215, 1040, 'GH0040', 'JL. H. JAMHARI', 'APD', 'RC', '-6.14978', '106.7999', 'Bandengan', '0000-00-00 00:00:00', ''),
+(216, 1041, 'GH0041', 'PT.PLN DIST JAYA / JL.MI.RIDWAN RAIS', 'APD', 'RC', '-6.18056', '106.83336', 'Menteng', '0000-00-00 00:00:00', ''),
+(217, 1042, 'GH0042', 'JL. KALI BATA UTARA 2', 'APD', 'TIDAK ADA', '-6.260835', '106.8393', 'Lenteng Agung', '0000-00-00 00:00:00', ''),
+(218, 1044, 'GH0044', 'JL.GELONG BARU SELATAN 4', 'APD', 'RC', '-6.177576893', '106.7977741', 'Menteng', '0000-00-00 00:00:00', ''),
+(219, 1045, 'GH0045', 'JL. KARANG TENGAH LEBAK BULUS', 'APD', 'RC', '-6.301168327', '106.7799392', 'Ciputat', '0000-00-00 00:00:00', ''),
+(220, 1046, 'GH0046', 'KOMPLEK HALIM PERDANA KUSUMA', 'APD', 'RC', '-6.26355', '106.88524', 'Kramat Jati', '0000-00-00 00:00:00', ''),
+(221, 1047, 'GH0047', 'JL. MUARA BARU', 'APD', 'RC', '-6.11122', '106.80068', 'Bandengan', '0000-00-00 00:00:00', ''),
+(222, 1048, 'GH0048', 'JL. DAAN MOGOT KP. PORIS PELAWAD', 'APD', 'TIDAK ADA', '-6.165924', '106.656038', 'Cikokol', '0000-00-00 00:00:00', ''),
+(223, 1049, 'GH0049', 'JL.GAYA MOTOR SUNTER', 'APD', 'RC', '-6.13277', '106.88455', 'Tanjung Priok', '0000-00-00 00:00:00', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gardu_induk`
+--
+
+CREATE TABLE `gardu_induk` (
+  `GI_ID` int(11) NOT NULL,
+  `GI_NAMA` varchar(50) NOT NULL,
+  `GI_ALAMAT` text NOT NULL,
+  `GI_KOORX` varchar(50) NOT NULL,
+  `GI_KOORY` varchar(50) NOT NULL,
+  `GI_TLP` varchar(50) DEFAULT NULL,
+  `ID_MS` int(11) NOT NULL,
+  `GI_WILAYAH` varchar(100) NOT NULL,
+  `GI_AREA` varchar(100) NOT NULL,
+  `CREATED_ON` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `CREATED_BY` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `gardu_induk`
+--
+
+INSERT INTO `gardu_induk` (`GI_ID`, `GI_NAMA`, `GI_ALAMAT`, `GI_KOORX`, `GI_KOORY`, `GI_TLP`, `ID_MS`, `GI_WILAYAH`, `GI_AREA`, `CREATED_ON`, `CREATED_BY`) VALUES
+(70, 'AGP', 'Jln. Mega Kuningan Barat No. Jakarta Selatan', '-6.227381', '106.823295', '021-70486155', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(71, 'ANCOL', 'Jln. Parangtritis VI Ancol Barat Jakarta Utara', '-6.125261', '106.825089', '021-37854124', 1, 'DISJAYA', 'TANJUNG PRIOK', NULL, NULL),
+(72, 'ANGKE', 'Jln. Jembatan III Pluit Mas Jakarta Utara', '-6.13429', '106.791341', '021-37854117', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
+(73, 'BEKASI', 'Jl. Kali Abang Bungur Kelurahan Harapan Jaya Bekas', '-6.205022', '106.982926', '', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
+(76, 'CAWANG', 'Jln. Mayjen Sutoyo No. 1 Jakarta Timur', '-6.262807', '106.867081', '021-90604153', 1, 'DISJAYA', 'KRAMAT JATI', NULL, NULL),
+(77, 'CAWANG BARU', 'Jln. Mayjen Sutoyo No. 2 jakarta Timur', '-6.260414', '106.868442', '', 1, 'DISJAYA', 'KRAMAT JATI', NULL, NULL),
+(78, 'CENGKARENG', 'Jln. Pembangunan 1 Kecamatan Batu Ceper', '-6.150472', '106.65898', '021-5501300', 1, 'DISJAYA', 'CENGKARENG', NULL, NULL),
+(79, 'CIPINANG', 'Jln. Griya Wartawan No. 10 Jakarta Timur', '-6.232282', '106.881193', '021-99008517', 1, 'DISJAYA', 'JATINEGARA', NULL, NULL),
+(81, 'DANAYASA', 'Jln. Jend. Sudirman Komp. SCBD No. Jakarta Selatan', '-6.22684', '106.805149', '021-32548953', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
+(85, 'BUDI KEMULIAAN', 'Jln. Kemuliaan 10C Jakarta Pusat', '-6.180072', '106.819877', '021-37854125', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(94, 'BINTARO', 'Komplek Bintaro Plaza Bintaro Sektor III', '-6.272764', '106.740307', '021-27318278', 1, 'DISJAYA', 'BINTARO', NULL, NULL),
+(100, 'CSW', 'Jln. Sisingamangaraja No. 1 Jakarta Selatan', '-6.239153', '106.798087', '021-32258461', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
+(102, 'DUKUH ATAS', 'Jln. Halimun No. 2 Jakarta Selatan 12980', '-6.206994', '106.832953', '021-37854105', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(113, 'DUREN TIGA', 'Jln. Duren Tiga Selatan Rt 11 / 3 No. 16. 12760. Jak - Sel', '-6.258697', '106.834686', '021-68524549', 1, 'DISJAYA', 'LENTENG AGUNG', NULL, NULL),
+(114, 'DURI KOSAMBI', 'Jln. Raya Duri Kosambi Cengkareng Jakarta Barat', '-6.171019', '106.725904', '', 1, 'DISJAYA', 'CENGKARENG', NULL, NULL),
+(115, 'GAMBIR BARU', 'Jln. Yos Sudarso Pintu Air Jakarta Utara', '-6.163457', '106.879281', '021-36650395', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(116, 'GAMBIR LAMA', 'Jln. M.I.R Rais No. 1 Jakarta Pusat 10110', '-6.179859', '106.835126', '021-37854118', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(117, 'GANDARIA (GIS)', 'Jln.Masjid Fathul Ghofur Bulak Sereh Cibubur.Jakarta Timur', '-6.3550933', '106.8801119', '021-37854104', 1, 'DISJAYA', 'CIRACAS', NULL, NULL),
+(118, 'GANDUL', 'Komplek PLN Gandul Cinere Jakarta Selatan', '-6.343284', '106.787045', '021-94491941', 1, 'DISJAYA', 'CIPUTAT', NULL, NULL),
+(119, 'GEDUNG POLA', 'Jln. Anyer ujung No. 10 Jakarta Pusat', '-6.204084', '106.844688', '021-37854107', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(120, 'GROGOL', 'Jln. Daan Mogot. Kali Sekertaris Jakarta Barat', '-6.166334', '106.783686', '021-27318595', 1, 'DISJAYA', 'KEBON JERUK', NULL, NULL),
+(121, 'JATIRANGON', 'Jln. Raya Hankam. Jati Murni Bekasi', '-6.327357', '106.92351', '021-37854112', 1, 'DISJAYA', 'PONDOK GEDE', NULL, NULL),
+(122, 'KANDANG SAPI', 'Jln. Raya Cakung Cilincing KM 23', '-6.133735', '106.932898', '021-37854119', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
+(123, 'KARET BARU', 'Jln. Tenaga Listrik No. 1 Kebon Melati Tanah Abang Jak-Pus', '-6.197866', '106.811243', '021-37854126', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(124, 'KARET LAMA', 'Jln. Tenaga Listrik No. 1 Kebon Melati Tanah Abang Jak-Pus', '-6.198479', '106.81171', '021-37854109', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(125, 'KEBON JERUK', 'Jln. Kemanggisan Raya Kebun Jeruk. Jakarta Barat', '-6.191506', '106.783955', '021-27318841', 1, 'DISJAYA', 'KEBON JERUK', NULL, NULL),
+(126, 'KEBON SIRIH', 'Jln. Kebon Sirih Timur Dalam Jakarta Pusat', '-6.186352', '106.830529', '021-37854122', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(127, 'KELAPA GADING', 'Jln. Pegangsaan Dua. Jakarta 14250', '-6.147357', '106.915115', '021-37761797', 1, 'DISJAYA', 'TANJUNG PRIOK', NULL, NULL),
+(128, 'KEMANG', 'Jln. Pejaten Barat No. 100 Jakarta Selatan', '-6.279432', '106.828157', '021-34140415', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
+(129, 'KEMAYORAN', 'Jln. Kriya Utama No. 1 lapangan Golf Kemayoran Jak - Pus', '-6.1405597', '106.8522992', '021-36650485', 1, 'DISJAYA', 'TANJUNG PRIOK', NULL, NULL),
+(130, 'KEMBANGAN', 'Jln. Pasar Minggu Kembangan Selatan. Jakarta Barat', '-6.18788', '106.720223', '021-26192496', 1, 'DISJAYA', 'KEBON JERUK', NULL, NULL),
+(131, 'KETAPANG', 'Jln. Jainul Arifin No. 20 Belakang PN Gas Jakarta Barat', '-6.159469', '106.814403', '021-6338967', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
+(132, 'MAMPANG BARU', 'Jln. KH. Abd Rohim Kuningan Barat Jakarta Selatan', '-6.235564', '106.821385', '021-68887998', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
+(133, 'MANGGA BESAR', 'Jln. Mangga Besar Raya Lokasari Jakarta Barat', '-6.147674', '106.822128', '021-37744216', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
+(134, 'MANGGARAI', 'Jln. Dr Saharjo No. 3 dan 4 Jakarta Selatan', '-6.213172', '106.845924', '021-83702550', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(135, 'MARUNDA', 'Jln. Sungai Tirem No. 1 Cilincing Jakarta Utara', '-6.117848', '106.955021', '021-37854106', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
+(136, 'MINIATUR', 'Jln. Wisata TMII. Jakarta Timur', '-6.29935', '106.89767', '021-92690932', 1, 'DISJAYA', 'KRAMAT JATI', NULL, NULL),
+(137, 'MUARA KARANG', 'Jln. Raya Pluit Utara Jakarta Utara', '-6.110293', '106.781326', '021-37890936', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
+(138, 'NEW SENAYAN', 'Jln. Cidodol Raya No. Jakarta Selatan', '-6.227517', '106.771684', '021-26717669', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
+(139, 'PEGANGSAAN', 'Jln. Pegangsaan II Pulo Gadung Jakarta Timur', '-6.178373', '106.917657', '021-36650487', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
+(140, 'PENGGILINGAN', 'Jln. Sentra Primer Walikota Jakarta Timur', '-6.202005', '106.944442', '021-36650526', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
+(141, 'PETUKANGAN', 'Jln. Adam Malik Pondok Aren Tangerang', '-6.253039', '106.74366', '021-27318553', 1, 'DISJAYA', 'KEBON JERUK', NULL, NULL),
+(142, 'PLUMPANG', 'Jln. Raya Plumpang No. 1 Jakarta Utara', '-6.130519', '106.895183', '021-27318590', 1, 'DISJAYA', 'TANJUNG PRIOK', NULL, NULL),
+(143, 'PONDOK INDAH', 'Jln. Lebak Bulus Raya.Jakarta 12330', '-6.29253', '106.770874', '', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
+(144, 'PONDOK KELAPA', 'Jln. Kamp Setu Bintara Jaya Bekasi Barat', '-6.242768', '106.95531', '021-36650486', 1, 'DISJAYA', 'PONDOK KOPI', NULL, NULL),
+(145, 'PRIOK TIMUR', 'JL KETEL no1', '-6.111005', '106.8655', '', 1, 'DISJAYA', 'TANJUNG PRIOK', NULL, NULL),
+(146, 'PULOGADUNG', 'Jln. Raya Bekasi KM 21 Jakarta Timur', '-6.184024', '106.917759', '021-36650397', 1, 'DISJAYA', 'CEMPAKA PUTIH', NULL, NULL),
+(147, 'PULOMAS', 'Jln. Rawamangun Muka Selatan No. 1 Jakarta Timur', '-6.201287', '106.879964', '021-36650484', 1, 'DISJAYA', 'CEMPAKA PUTIH', NULL, NULL),
+(148, 'SENAYAN', 'Jln. Asia Afrika No 1 PLTD Senayan. Jakarta Selatan', '-6.21579', '106.794442', '021-37299501', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
+(149, 'SETIA BUDI', 'Jln. Perbanas Rasuna Said kuningan Jakarta Selatan', '-6.218812', '106.82929', '021-37851420', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(150, 'TAMAN RASUNA', 'Jln. Jaya Mandala 1 Rt 08 / 01 Kel Menteng Dalam. Jak - Sel', '-6.239454', '106.839184', '021-26144171', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(151, 'TANAH TINGGI', 'JL. RAYA PRAMUKA', '-6.19168', '106.868677', '', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(152, 'KAPUK (PIK)', 'Jl. Pantai Indah Selatan 1', '-6.123892', '106.751295', '', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
+(153, 'GUNUNG SAHARI (GIS)', 'Jln. Gunung Sahari Raya. Pademangan', '-6.131045', '106.831553', '021-6494967', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
+(154, 'HARAPAN INDAH (GIS)', 'Jln. Taruma Jaya No.60. Pusaka Rakyat', '-6.148083', '106.981932', '', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
+(155, 'BINTARO 2 / PONDOK AREN (GIS)', 'Perumahan Kebayoran Heights Sektor VII. Bintaro', '-6.270889', '106.711333', '', 1, 'DISJAYA', 'BINTARO', NULL, NULL),
+(156, 'ANTASARI', 'Jln. Kemang Selatan XII', '-6.27284', '106.81359 ', '', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gi_ib`
+--
+
+CREATE TABLE `gi_ib` (
+  `IB_ID` int(11) NOT NULL,
+  `GI_ID` int(11) NOT NULL,
+  `IB_NAMA` varchar(50) NOT NULL,
+  `IB_BEBAN` varchar(50) NOT NULL,
+  `CREATED_ON` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `CREATED_BY` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `gi_ib`
+--
+
+INSERT INTO `gi_ib` (`IB_ID`, `GI_ID`, `IB_NAMA`, `IB_BEBAN`, `CREATED_ON`, `CREATED_BY`) VALUES
+(18, 70, 'Trafo 1', '71%', '0000-00-00 00:00:00', ''),
+(19, 70, 'Trafo 2', '57%', '0000-00-00 00:00:00', ''),
+(20, 70, 'Trafo 3', '51%', '0000-00-00 00:00:00', ''),
+(21, 70, 'Trafo 4', '7%', '0000-00-00 00:00:00', ''),
+(22, 71, 'Trafo 1', '71%', '0000-00-00 00:00:00', ''),
+(23, 71, 'Trafo 2', '47%', '0000-00-00 00:00:00', ''),
+(24, 71, 'Trafo 3', '92%', '0000-00-00 00:00:00', ''),
+(25, 72, 'Trafo 1', '85%', '0000-00-00 00:00:00', ''),
+(26, 72, 'Trafo 2', '74%', '0000-00-00 00:00:00', ''),
+(27, 72, 'Trafo 3', '88%', '0000-00-00 00:00:00', ''),
+(28, 72, 'Trafo 4', '71%', '0000-00-00 00:00:00', ''),
+(29, 73, 'Trafo 1', '44%', '0000-00-00 00:00:00', ''),
+(30, 73, 'Trafo 2', '75%', '0000-00-00 00:00:00', ''),
+(31, 73, 'Trafo 3', '68%', '2018-03-27 09:53:37', ''),
+(32, 73, 'Trafo 4', '72%', '0000-00-00 00:00:00', ''),
+(33, 73, 'Trafo 5', '52%', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -41,11 +521,462 @@ CREATE TABLE `map` (
 --
 
 INSERT INTO `map` (`id_maps`, `subjek`, `place_lat`, `place_lng`, `place_location`) VALUES
-(9, 'pace', '-2.5916025', '140.66899950000004', 'Jayapura, Jayapura City, Papua, Indonesia');
+(9, 'pace', '-2.5916025', '140.66899950000004', 'Jayapura, Jayapura City, Papua, Indonesia'),
+(10, '', '-6.2614927', '106.81059979999998', 'South Jakarta, South Jakarta City, Jakarta, Indonesia'),
+(11, '', '-6.217537999999999', '106.83092899999997', 'RT.6/RW.7, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940, Indonesia');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `markers`
+--
+
+CREATE TABLE `markers` (
+  `id` int(11) NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `address` varchar(80) NOT NULL,
+  `lat` varchar(20) NOT NULL,
+  `lng` varchar(20) NOT NULL,
+  `type` varchar(30) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `markers`
+--
+
+INSERT INTO `markers` (`id`, `name`, `address`, `lat`, `lng`, `type`) VALUES
+(1, 'Pan Africa Market', '1521 1st Ave, Seattle, WA', '20.6', '10.5', '20'),
+(2, 'Buddha Thai Bar', '2222 2nd Ave, Seattle, WA', '6.7', '24.1', '30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_status`
+--
+
+CREATE TABLE `master_status` (
+  `ID_MS` int(11) NOT NULL,
+  `NAMA` varchar(50) NOT NULL,
+  `CREATED_ON` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `CREATED_BY` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `master_status`
+--
+
+INSERT INTO `master_status` (`ID_MS`, `NAMA`, `CREATED_ON`, `CREATED_BY`) VALUES
+(1, 'BEROPERASI', NULL, NULL),
+(2, 'TIDAK BEROPERASI', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `progress`
+--
+
+CREATE TABLE `progress` (
+  `PROGRESS_ID` int(11) NOT NULL,
+  `NAMA_PROGRESS` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `progress`
+--
+
+INSERT INTO `progress` (`PROGRESS_ID`, `NAMA_PROGRESS`) VALUES
+(1, 'Pematangan Lahan'),
+(2, 'Proses Lelang/Pengadaan'),
+(3, 'proses Kontrak'),
+(4, 'Terkontrak'),
+(5, 'Basic Design'),
+(6, 'Tahap Konstruksi (5%-10%)'),
+(7, 'Tahap Konstruksi (10%-20%)'),
+(8, 'Tahap Konstruksi (20%-50%)'),
+(9, 'Tahap Konstruksi (50%-70%)'),
+(10, 'Tahap Konstruksi (70%-90%)'),
+(11, 'Sertifikat Laik Operasi (SLO) Sisi 20 kV'),
+(12, 'Sertifikat Laik Operasi (SLO) Sisi 150 kV'),
+(13, 'Sudah Operasi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `progress_trafo`
+--
+
+CREATE TABLE `progress_trafo` (
+  `WT_PROGRESS` int(11) NOT NULL,
+  `NAMA_PROGRESS` varchar(500) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `progress_trafo`
+--
+
+INSERT INTO `progress_trafo` (`WT_PROGRESS`, `NAMA_PROGRESS`) VALUES
+(1, 'Pematangan Lahan'),
+(2, 'Proses Lelang/pengadaan'),
+(3, 'Proses Kontrak'),
+(4, 'Terkontrak'),
+(5, 'Basic Design'),
+(6, 'Tahap Kontruksi (5%-10%)'),
+(7, 'Tahap Kontruksi (10%-20%)'),
+(8, 'Tahap Kontruksi (20%-50%)'),
+(9, 'Tahap Kontruksi (50%-70%)'),
+(10, 'Tahap Kontruksi (70%-90%)'),
+(11, 'Sertifikat Laik Operasi (SLO) sisi 20 KV'),
+(12, 'Sertifikat Laik Operasi (SLO) sisi 150 KV'),
+(13, 'Sudah Operasi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transmisi150`
+--
+
+CREATE TABLE `transmisi150` (
+  `TR_ID` int(11) NOT NULL,
+  `TR_NAMA_BAY` varchar(50) NOT NULL,
+  `TR_NO_TOWER` int(11) NOT NULL,
+  `TR_TYPE_TOWER` varchar(50) NOT NULL,
+  `TR_TEGANGAN` int(11) NOT NULL,
+  `TR_REGION` varchar(50) NOT NULL,
+  `TR_STATUS_MILIK` varchar(50) NOT NULL,
+  `TR_PROVINSI` varchar(50) NOT NULL,
+  `TR_KOTA_KAB` varchar(50) NOT NULL,
+  `TR_KECAMATAN` varchar(50) NOT NULL,
+  `TR_KELURAHAN` varchar(50) NOT NULL,
+  `TR_KOORX` varchar(100) NOT NULL,
+  `TR_KOORY` varchar(100) NOT NULL,
+  `TR_UNIT` varchar(50) NOT NULL,
+  `TR_TRAGI` varchar(50) NOT NULL,
+  `CREATED_ON` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `CREATED_BY` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `transmisi150`
+--
+
+INSERT INTO `transmisi150` (`TR_ID`, `TR_NAMA_BAY`, `TR_NO_TOWER`, `TR_TYPE_TOWER`, `TR_TEGANGAN`, `TR_REGION`, `TR_STATUS_MILIK`, `TR_PROVINSI`, `TR_KOTA_KAB`, `TR_KECAMATAN`, `TR_KELURAHAN`, `TR_KOORX`, `TR_KOORY`, `TR_UNIT`, `TR_TRAGI`, `CREATED_ON`, `CREATED_BY`) VALUES
+(8, 'TOWER SUTT 150kV MKLMA-DKSBI #0008', 8, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PLUIT', '', '', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(9, 'TOWER SUTT 150+70kV CWANG-DEPOK #0017', 17, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', '', 'PASAR MINGGU', 'TANJUNG BARAT', '-6.289846247', '106.8417278', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CAWANG', '0000-00-00 00:00:00', ''),
+(10, 'TOWER SUTT 150+70kV CWANG-DEPOK #0018', 18, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', '', 'PASAR MINGGU', 'PASAR MINGGU', '-6.292676148', '106.8395056', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CAWANG', '0000-00-00 00:00:00', ''),
+(11, 'TOWER SUTT 150+70kV CWANG-DEPOK #0019', 19, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', '', 'PASAR MINGGU', 'PASAR MINGGU', '-6.294846771', '106.8376345', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CAWANG', '0000-00-00 00:00:00', ''),
+(12, 'TOWER SUTT 150+70kV CWANG-DEPOK #0020', 20, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', '', 'PASAR MINGGU', 'PASAR MINGGU', '-6.297521205', '106.8356854', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CAWANG', '0000-00-00 00:00:00', ''),
+(13, 'TOWER SUTT 150+70kV CWANG-DEPOK #0021', 21, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', '', 'PASAR MINGGU', 'KEBAGUSAN', '-6.299265535', '106.8336191', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CAWANG', '0000-00-00 00:00:00', ''),
+(14, 'TOWER SUTT 150+70kV SKTI-RKBG-BNR #0083', 83, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'LEBAK', 'RangkasBitung', 'Rks. Btg Barat', '-6.367355', '106.251255', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(15, 'TOWER SUTT 150+70kV SKTI-RKBG-BNR #0084', 84, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'LEBAK', 'RangkasBitung', 'Rks. Btg Barat', '-6.370491', '106.253058', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(16, 'TOWER SUTT 150+70kV SKTI-RKBG-BNR #0085', 85, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'LEBAK', 'RangkasBitung', 'Rks. Btg Timur', '-6.37378', '106.254902', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(17, 'TOWER SUTT 150+70kV SKTI-RKBG-BNR #0086', 86, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'LEBAK', 'RangkasBitung', 'Rks. Btg Timur', '-6.375997', '106.256221', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(18, 'TOWER SUTT 150kV AFTAK-PENI #0001', 1, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'GROGOL', 'RAWA ARUM', '-5.985318324', '106.0069615', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(19, 'TOWER SUTT 150kV AFTAK-PENI #0002', 2, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'GROGOL', 'RAWA ARUM', '-5.984564', '106.005311', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(20, 'TOWER SUTT 150kV AFTAK-PENI #0003', 3, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'GROGOL', 'RAWA ARUM', '-5.98351243', '106.0031509', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(21, 'TOWER SUTT 150kV AFTAK-PENI #0004', 4, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'GROGOL', 'RAWA ARUM', '-5.982525164', '106.0010568', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(22, 'TOWER SUTT 150kV AFTAK-PENI #0005', 5, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'GROGOL', 'RAWA ARUM', '-5.981544', '105.998967', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(23, 'TOWER SUTT 150kV AFTAK-PENI #0005A', 5, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'GROGOL', 'RAWA ARUM', '-5.981703', '105.998894', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(24, 'TOWER SUTT 150kV AFTAK-PENI #0006', 6, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'GROGOL', 'RAWA ARUM', '-5.980422', '105.996478', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(25, 'TOWER SUTT 150kV ANGKE-ANCOL #0001', 1, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PEJAGALAN', '-6.1337', '106.79165', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(26, 'TOWER SUTT 150kV ANGKE-ANCOL #0002', 2, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PENJARINGAN', '-6.13348', '106.79342', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(27, 'TOWER SUTT 150kV ANGKE-ANCOL #0003', 3, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PENJARINGAN', '-6.13328', '106.79566', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(28, 'TOWER SUTT 150kV ANGKE-ANCOL #0004', 4, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PENJARINGAN', '-6.133', '106.79784', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(29, 'TOWER SUTT 150kV ANGKE-ANCOL #0005', 5, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PENJARINGAN', '-6.13291', '106.79969', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(30, 'TOWER SUTT 150kV ANGKE-ANCOL #0006', 6, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PENJARINGAN', '-6.13272', '106.80155', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(31, 'TOWER SUTT 150kV ANGKE-ANCOL #0007', 7, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PENJARINGAN', '-6.13258', '106.8033', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(32, 'TOWER SUTT 150kV ANGKE-ANCOL #0008', 8, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PENJARINGAN', '-6.13211', '106.80519', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(33, 'TOWER SUTT 150kV ANGKE-ANCOL #0009', 9, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PENJARINGAN', '-6.1316', '106.80711', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(34, 'TOWER SUTT 150kV ANGKE-ANCOL #0010', 10, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PENJARINGAN', '-6.13119', '106.80869', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(35, 'TOWER SUTT 150kV ANGKE-ANCOL #0011', 11, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PENJARINGAN', '-6.13047', '106.81153', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(36, 'TOWER SUTT 150kV ANGKE-ANCOL #0012', 12, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PENJARINGAN', 'PENJARINGAN', '-6.12994', '106.81381', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(37, 'TOWER SUTT 150kV ANGKE-ANCOL #0013', 13, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PADEMANGAN', 'ANCOL', '-6.12998', '106.81677', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(38, 'TOWER SUTT 150kV ANGKE-ANCOL #0014', 14, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PADEMANGAN', 'ANCOL', '-6.1296', '106.81949', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(39, 'TOWER SUTT 150kV ANGKE-ANCOL #0015', 15, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'PADEMANGAN', 'ANCOL', '-6.12923', '106.82202', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(40, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #001', 1, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'KARANG SURAG', '-6.149538', '105.869052', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(41, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #002', 2, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'CINANGKA', '-6.149213', '105.869455', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(42, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #003', 3, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'CINANGKA', '-6.145848949', '105.8715356', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(43, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #004', 4, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'SINDANG LAYAR', '-6.143732176', '105.8736571', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(44, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #005', 5, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'SINDANG LAYAR', '-6.14177702', '105.8757288', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(45, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #006', 6, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'SINDANG LAYAR', '-6.140216307', '105.8774854', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(46, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #007', 7, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'SINDANG LAYAR', '-6.138288272', '105.879477', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(47, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #008', 8, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'SINDANG LAYAR', '-6.135863269', '105.881158', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(48, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #009', 9, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'SINDANG LAYAR', '-6.133621155', '105.8826602', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(49, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #010', 10, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'KAMASAN', '-6.130621974', '105.8846989', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(50, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #011', 11, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'KAMASAN', '-6.12817199', '105.8863733', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(51, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #012', 12, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'KAMASAN', '-6.125974367', '105.8878786', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(52, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #013', 13, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'KAMASAN', '-6.121153', '105.891075', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(53, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #014', 14, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'KAMASAN', '-6.118705511', '105.8922308', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(54, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #015', 15, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'KAMASAN', '-6.115989', '105.893562', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(55, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #016', 16, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CINANGKA', 'KAMASAN', '-6.113006069', '105.8950186', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(56, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #017', 17, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BANDULU', '-6.110843044', '105.8960722', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(57, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #018', 18, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BANDULU', '-6.108167942', '105.8973806', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(58, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #019', 19, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BANDULU', '-6.105823952', '105.8985191', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(59, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #020', 20, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BANDULU', '-6.103098355', '105.8998111', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(60, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #021', 21, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BANDULU', '-6.09990978', '105.900389', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(61, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #022', 22, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BANDULU', '-6.097059646', '105.9008436', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(62, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #023', 23, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BANDULU', '-6.094541579', '105.9012357', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(63, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #024', 24, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BANDULU', '-6.091586558', '105.901743', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(64, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #025', 25, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'SINDANG KARYA', '-6.088729289', '105.9021114', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(65, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #026', 26, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'SINDANG KARYA', '-6.086930681', '105.9045324', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(66, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #027', 27, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'TANJUNG MANIS', '-6.085139396', '105.9067972', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(67, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #028', 28, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'TANJUNG MANIS', '-6.083291659', '105.9091878', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(68, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #029', 29, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'TANJUNG MANIS', '-6.081091303', '105.9118826', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(69, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #030', 30, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'TANJUNG MANIS', '-6.079106844', '105.9135291', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(70, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #031', 31, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KRAMAT ASEM', '-6.077130187', '105.9152731', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(71, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #032', 32, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KRAMAT ASEM', '-6.074562879', '105.9173915', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(72, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #033', 33, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KRAMAT ASEM', '-6.072776963', '105.9186832', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(73, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #034', 34, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KRAMAT ASEM', '-6.072019277', '105.9207766', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(74, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #035', 35, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BUNIHARA', '-6.070822117', '105.923462', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(75, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #036', 36, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BUNIHARA', '-6.068523119', '105.9255534', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(76, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #037', 37, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BUNIHARA', '-6.066288', '105.927788', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(77, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #038', 38, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'BUNIHARA', '-6.064915741', '105.9293286', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(78, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #039', 39, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KOSAMBI RONYOK', '-6.063469135', '105.9311657', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(79, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #040', 40, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KOSAMBI RONYOK', '-6.061665206', '105.9333397', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(80, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #041', 41, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KOSAMBI RONYOK', '-6.059862636', '105.9355377', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(81, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #042', 42, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KOSAMBI RONYOK', '-6.057971192', '105.9378764', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(82, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #043', 43, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KOSAMBI RONYOK', '-6.056332656', '105.9398435', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(83, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #044', 44, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KOSAMBI RONYOK', '-6.0543059', '105.9423812', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(84, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #045', 45, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KOSAMBI RONYOK', '-6.054021', '105.94413', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(85, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #046', 46, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KOSAMBI RONYOK', '-6.053608679', '105.9466478', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(86, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #047', 47, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'ANYER', 'KOSAMBI RONYOK', '-6.053192608', '105.9488758', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(87, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #048', 48, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CIWANDAN', 'G.SUGIH', '-6.052725787', '105.9513043', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(88, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #049', 49, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CIWANDAN', 'G.SUGIH', '-6.052268161', '105.9539491', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(89, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #050', 50, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CIWANDAN', 'G.SUGIH', '-6.048671129', '105.9536495', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(90, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #051', 51, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CIWANDAN', 'G.SUGIH', '-6.04564809', '105.951804', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(91, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #052', 52, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CIWANDAN', 'G.SUGIH', '-6.042892331', '105.949792', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(92, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #053', 53, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CIWANDAN', 'G.SUGIH', '-6.039839219', '105.9479853', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(93, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #054', 54, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CIWANDAN', 'G.SUGIH', '-6.037107222', '105.9469822', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(94, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #055', 55, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CIWANDAN', 'G.SUGIH', '-6.034763485', '105.9446259', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(95, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #056', 56, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CIWANDAN', 'G.SUGIH', '-6.035146', '105.941612', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(96, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #057', 57, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CIWANDAN', 'G.SUGIH', '-6.034318', '105.941209', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(97, 'TOWER SUTT 150kV ASAHI2-ASHMS+CNDRA #058', 58, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'SERANG', 'CIWANDAN', 'G.SUGIH', '-6.033600401', '105.9400528', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(98, 'TOWER SUTT 150kV ASHMS-POLY+CLGRU #0001', 0, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'CIWANDAN', 'GUNUNG SUGIH', '-6.033708', '105.940483', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(99, 'TOWER SUTT 150kV ASHMS-POLY+CLGRU #0002', 0, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'CIWANDAN', 'GUNUNG SUGIH', '-6.034832', '105.941635', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(100, 'TOWER SUTT 150kV ASHMS-POLY+CLGRU #0003', 0, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'CIWANDAN', 'GUNUNG SUGIH', '-6.034432', '105.944664', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(101, 'TOWER SUTT 150kV ASHMS-POLY+CLGRU #0004', 0, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'CIWANDAN', 'KEPUH', '-6.03305', '105.945793', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(102, 'TOWER SUTT 150kV ASHMS-POLY+CLGRU #0004A', 0, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'CIWANDAN', 'KEPUH', '-6.030875', '105.947609', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(103, 'TOWER SUTT 150kV ASHMS-POLY+CLGRU3 #0005', 0, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'CIWANDAN', 'KEPUH', '-6.028681', '105.949287', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(104, 'TOWER SUTT 150kV ASHMS-POLY+CLGRU3 #0006', 0, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'CIWANDAN', 'KEPUH', '-6.026328', '105.951149', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(105, 'TOWER SUTT 150kV ASHMS-POLY+CLGRU3 #0007', 0, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'CILEGON', 'CIWANDAN', 'KEPUH', '-6.024191', '105.95076', 'TRANSMISI JAWA BAGIAN BARAT', 'APP CILEGON', '0000-00-00 00:00:00', ''),
+(106, 'TOWER SUTT 150kV BKASI-KSAPI #0001', 1, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.1360256', '106.936454', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(107, 'TOWER SUTT 150kV BKASI-MRNDA #0001A', 1, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'HARAPAN JAYA', '-6.2021', '106.9844', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(108, 'TOWER SUTT 150kV BKASI-MRNDA #0014', 14, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.1708', '106.9975', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(109, 'TOWER SUTT 150kV BKASI-MRNDA #0014A', 14, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.1692', '106.9973', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(110, 'TOWER SUTT 150kV BKASI-MRNDA #0015', 15, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.1675', '106.997', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(111, 'TOWER SUTT 150kV BKASI-MRNDA #0016', 16, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.1646', '106.9965', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(112, 'TOWER SUTT 150kV BKASI-MRNDA #0017', 17, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.1618', '106.9961', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(113, 'TOWER SUTT 150kV BKASI-MRNDA #0018', 18, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.1593', '106.9956', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(114, 'TOWER SUTT 150kV BKASI-MRNDA #0019', 19, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.1563', '106.9951', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(115, 'TOWER SUTT 150kV BKASI-MRNDA #0020', 20, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.1537', '106.9947', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(116, 'TOWER SUTT 150kV BKASI-MRNDA #0021', 21, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.151', '106.9943', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(117, 'TOWER SUTT 150kV BKASI-MRNDA #0022', 22, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.1484', '106.9939', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(118, 'TOWER SUTT 150kV BKASI-MRNDA #0023', 23, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.146', '106.9934', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(119, 'TOWER SUTT 150kV BKASI-MRNDA #0024', 24, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.1436', '106.9931', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(120, 'TOWER SUTT 150kV BKASI-MRNDA #0025', 25, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.1403', '106.9925', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(121, 'TOWER SUTT 150kV BKASI-MRNDA #0026', 26, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.1378', '106.9921', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(122, 'TOWER SUTT 150kV BKASI-MRNDA #0027', 27, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.1358', '106.9898', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(123, 'TOWER SUTT 150kV BKASI-MRNDA #0028', 28, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.1343', '106.9881', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(124, 'TOWER SUTT 150kV BKASI-MRNDA #0029', 29, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.132603311', '106.9861137', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(125, 'TOWER SUTT 150kV BKASI-MRNDA #0030', 30, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.130661778', '106.9838306', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(126, 'TOWER SUTT 150kV BKASI-MRNDA #0031', 31, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.128805957', '106.9817191', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(127, 'TOWER SUTT 150kV BKASI-MRNDA #0032', 32, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.126513543', '106.979008', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(128, 'TOWER SUTT 150kV BKASI-MRNDA #0033', 33, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETYA MULYA', '-6.125144043', '106.9774079', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(129, 'TOWER SUTT 150kV BKASI-MRNDA #0034', 34, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SEGARA MAKMUR', '-6.12343323', '106.9754617', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(130, 'TOWER SUTT 150kV BKASI-MRNDA #0035', 35, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SEGARA MAKMUR', '-6.121452338', '106.9731671', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(131, 'TOWER SUTT 150kV BKASI-MRNDA #0036', 36, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SEGARA MAKMUR', '-6.118888637', '106.9701698', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(132, 'TOWER SUTT 150kV BKASI-MRNDA #0037', 37, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SEGARA MAKMUR', '-6.117961121', '106.9674737', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(133, 'TOWER SUTT 150kV BKASI-MRNDA #0038', 38, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SEGARA MAKMUR', '-6.117004791', '106.9646795', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(134, 'TOWER SUTT 150kV BKASI-MRNDA #0039', 39, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SEGARA MAKMUR', '-6.1163', '106.9626', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(135, 'TOWER SUTT 150kV BKASI-MRNDA #0040', 40, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'CILINCING', 'MARUNDA', '-6.1166', '106.9598', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(136, 'TOWER SUTT 150kV BKASI-MRNDA #0041', 41, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'CILINCING', 'MARUNDA', '-6.1163', '106.9577', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(137, 'TOWER SUTT 150kV BKASI-MRNDA #0042', 42, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'CILINCING', 'MARUNDA', '-6.1176', '106.9556', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(138, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0012', 12, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.16825', '106.99553', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(139, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0013', 13, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.16559', '106.99377', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(140, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0014', 14, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.16262', '106.99178', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(141, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0015', 15, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'PUSAKA RAKYAT', '-6.1597', '106.98987', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(142, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0016', 16, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'PUSAKA RAKYAT', '-6.15683', '106.98796', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(143, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0017', 17, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'PUSAKA RAKYAT', '-6.15395', '106.98605', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(144, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0018', 18, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'PUSAKA RAKYAT', '-6.15102', '106.9841', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(145, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0019', 19, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'PUSAKA RAKYAT', '-6.14813', '106.98212', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(146, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0020', 20, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'PUSAKA RAKYAT', '-6.147342599', '106.9787817', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(147, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0021', 21, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'PUSAKA RAKYAT', '-6.146615146', '106.9752331', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(148, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0022', 22, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'PERMATA RAKYAT', '-6.145927048', '106.9714271', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(149, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0023', 23, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'PERMATA RAKYAT', '-6.145180377', '106.9677438', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(150, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0024', 24, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'PERMATA RAKYAT', '-6.144552222', '106.9648471', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(151, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0025', 25, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.143833604', '106.9612826', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(152, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0026', 26, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.143151412', '106.9576485', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(153, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0027', 27, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.142372583', '106.9535941', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(154, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0028', 28, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.141634711', '106.9500547', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(155, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0029', 29, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.14093484', '106.9464736', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(156, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0030', 30, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.14020533', '106.9429087', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(157, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0031', 31, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.138741306', '106.9416434', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(158, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0032', 32, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.137430888', '106.9405158', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(159, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0033', 33, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.136675466', '106.9398461', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(160, 'TOWER SUTT 150kV BKSI-KSPI+PLPG #0034', 34, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.136628338', '106.9369353', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(161, 'TOWER SUTT 150kV BKSI-KSPI-PLPG #0003', 3, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.134025', '106.9365', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(162, 'TOWER SUTT 150kV BKSI-KSPI-PLPG #0004', 4, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'ROROTAN', '-6.13320219', '106.936641', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(163, 'TOWER SUTT 150kV BKSI-PLP+KSPI #0001B', 1, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'HARAPAN JAYA', '-6.2026', '106.9845', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(164, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0035', 35, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'SEMPER TIMUR', '-6.136400944', '106.9347719', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(165, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0036', 36, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'SEMPER BARAT', '-6.136552179', '106.9317183', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(166, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0037', 37, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'SEMPER BARAT', '-6.13649375', '106.9284524', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(167, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0038', 38, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'SEMPER BARAT', '-6.13632', '106.924258', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(168, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0039', 39, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'SEMPER BARAT', '-6.13608', '106.920985', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(169, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0040', 40, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'CILINCING', 'SEMPER BARAT', '-6.1358', '106.91761', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(170, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0041', 41, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'KOJA', 'TUGU SELATAN', '-6.13502', '106.91527', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(171, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0042', 42, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'KOJA', 'TUGU SELATAN', '-6.13374', '106.91183', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(172, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0043', 43, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'KOJA', 'TUGU SELATAN', '-6.13288', '106.90893', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(173, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0044', 44, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'KOJA', 'TUGU SELATAN', '-6.13183', '106.9061', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(174, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0045', 45, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'KOJA', 'TUGU SELATAN', '-6.13086', '106.90287', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(175, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0046', 46, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'KOJA', 'TUGU SELATAN', '-6.13008', '106.90013', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(176, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0047', 47, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'SEMPER', 'RAWA BADAK SLT', '-6.1307', '106.89779', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(177, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0048', 48, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'SEMPER', 'RAWA BADAK SLT', '-6.12928', '106.89752', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(178, 'TOWER SUTT 150kV BKSI-PLPG-KSPI #0049', 49, 'TENSION', 150, 'JAWA BALI', 'PLN', 'DKI JAKARTA', 'JAKARTA UTARA', 'SEMPER', 'RAWA BADAK SLT', '-6.12968', '106.89698', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(179, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0001C', 1, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'HARAPAN JAYA', '-6.2023', '106.9864', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(180, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0002C', 2, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'HARAPAN JAYA', '-6.202344738', '106.9894822', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(181, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0003C', 3, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'HARAPAN JAYA', '-6.200127448', '106.9918418', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(182, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0004C', 4, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'PEJUANG', '-6.197341065', '106.9923683', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(183, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0005C', 5, 'TENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'PEJUANG', '-6.193988144', '106.9929837', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(184, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0006C', 6, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'PEJUANG', '-6.190818098', '106.9935655', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(185, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0007C', 7, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'KALI ABANG', '-6.1877', '106.9942', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(186, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0008C', 8, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'KALI ABANG', '-6.184264755', '106.9948152', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(187, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0009C', 9, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'KALI ABANG', '-6.180856386', '106.9954145', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(188, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0010C', 10, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'BEKASI UTARA', 'KALI ABANG', '-6.177530668', '106.9960385', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(189, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0011C', 11, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.1743', '106.9967', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(190, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0012C', 12, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.1711', '106.9972', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(191, 'TOWER SUTT 150kV BKS-MRD+PLP+KSP #0013C', 13, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'JAWA BARAT', 'BEKASI', 'TARUMA JAYA', 'SETIA ASIH', '-6.1709', '106.99728', 'TRANSMISI JAWA BAGIAN BARAT', 'APP PULOGADUNG', '0000-00-00 00:00:00', ''),
+(192, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0040', 40, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'SUKAMULYA', 'MERAK', '-6.170616053', '106.4459225', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(193, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0041', 41, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'BALARAJA', 'SAGA', '-6.170808679', '106.4481934', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(194, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0042', 42, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'BALARAJA', 'SAGA', '-6.17080654', '106.4507468', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(195, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0043', 43, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'BALARAJA', 'SAGA', '-6.171060934', '106.4540038', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(196, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0044', 44, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'BALARAJA', 'SAGA', '-6.171140206', '106.4568009', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(197, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0045', 45, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'BALARAJA', 'SAGA', '-6.170938677', '106.4589095', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(198, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0045A', 45, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'BALARAJA', 'SAGA', '-6.170999994', '106.4614615', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(199, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0046', 46, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'BALARAJA', 'SAGA', '-6.171057775', '106.4637976', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(200, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0047', 47, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'BALARAJA', 'SAGA', '-6.171017056', '106.4659518', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(201, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0048', 48, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'SINDANG JAYA', 'SINDANG SONO', '-6.171003673', '106.4690099', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(202, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0049', 49, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'SINDANG JAYA', 'SINDANG SONO', '-6.170951834', '106.471664', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(203, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0050', 50, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'SINDANG JAYA', 'SINDANG SONO', '-6.170814588', '106.4752073', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(204, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0051', 51, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'SINDANG JAYA', 'SINDANG SONO', '-6.171498889', '106.4771297', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(205, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0052', 52, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'SINDANG JAYA', 'SINDANG SONO', '-6.171907548', '106.4776828', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(206, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0053', 53, 'TENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'SINDANG JAYA', 'SINDANG SONO', '-6.172338526', '106.4785862', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', ''),
+(207, 'TOWER SUTT 150kV BLJ-CKP+NBLJ-CTR #0054', 54, 'SUSPENSION', 150, 'JAWA BALI', 'PLN', 'BANTEN', 'TANGERANG', 'SINDANG JAYA', 'SINDANG SONO', '-6.17325', '106.48107', 'TRANSMISI JAWA BAGIAN BARAT', 'APP DURIKOSAMBI', '0000-00-00 00:00:00', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `username` varchar(50) NOT NULL,
+  `password` varchar(15) NOT NULL,
+  `full_nama` varchar(50) NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`username`, `password`, `full_nama`, `email`) VALUES
+('admin', 'admin', 'Gusti', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `workflow`
+--
+
+CREATE TABLE `workflow` (
+  `WF_ID` int(11) NOT NULL,
+  `PROGRESS_ID` int(11) NOT NULL,
+  `CREATED_ON` date NOT NULL,
+  `CREATED_BY` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `CODGI_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `workflow`
+--
+
+INSERT INTO `workflow` (`WF_ID`, `PROGRESS_ID`, `CREATED_ON`, `CREATED_BY`, `CODGI_ID`) VALUES
+(7, 1, '2017-12-08', 'admin', 9),
+(8, 2, '2017-12-08', 'admin', 9),
+(9, 3, '2018-03-26', 'admin', 9);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `workflow_trafo`
+--
+
+CREATE TABLE `workflow_trafo` (
+  `WT_ID` int(11) NOT NULL,
+  `WT_PROGRESS` int(11) NOT NULL,
+  `TRAFO_ID` int(11) NOT NULL,
+  `CREATED_ON` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `CREATED_BY` varchar(100) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `workflow_trafo`
+--
+
+INSERT INTO `workflow_trafo` (`WT_ID`, `WT_PROGRESS`, `TRAFO_ID`, `CREATED_ON`, `CREATED_BY`) VALUES
+(2, 1, 6, '2018-03-27', 'admin'),
+(3, 2, 6, '2018-03-27', 'admin'),
+(4, 1, 2, '2018-03-27', 'admin'),
+(5, 2, 2, '2018-03-27', 'admin');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `basis_progress`
+--
+ALTER TABLE `basis_progress`
+  ADD KEY `fk_basisstart` (`START`),
+  ADD KEY `FK_BASISEND` (`END`);
+
+--
+-- Indexes for table `basis_progresstr`
+--
+ALTER TABLE `basis_progresstr`
+  ADD KEY `FK_BASISTRSTART` (`BASIS_START`),
+  ADD KEY `FK_BASISTREND` (`BASIS_END`);
+
+--
+-- Indexes for table `cod_gi`
+--
+ALTER TABLE `cod_gi`
+  ADD PRIMARY KEY (`CODGI_ID`);
+
+--
+-- Indexes for table `ext_trafo`
+--
+ALTER TABLE `ext_trafo`
+  ADD PRIMARY KEY (`TRAFO_ID`);
+
+--
+-- Indexes for table `gardu_hubung`
+--
+ALTER TABLE `gardu_hubung`
+  ADD PRIMARY KEY (`GH_ID`);
+
+--
+-- Indexes for table `gardu_induk`
+--
+ALTER TABLE `gardu_induk`
+  ADD PRIMARY KEY (`GI_ID`),
+  ADD KEY `ID_MS` (`ID_MS`);
+
+--
+-- Indexes for table `gi_ib`
+--
+ALTER TABLE `gi_ib`
+  ADD PRIMARY KEY (`IB_ID`),
+  ADD KEY `GI_ID` (`GI_ID`);
 
 --
 -- Indexes for table `map`
@@ -54,14 +985,183 @@ ALTER TABLE `map`
   ADD PRIMARY KEY (`id_maps`);
 
 --
+-- Indexes for table `markers`
+--
+ALTER TABLE `markers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `master_status`
+--
+ALTER TABLE `master_status`
+  ADD PRIMARY KEY (`ID_MS`);
+
+--
+-- Indexes for table `progress`
+--
+ALTER TABLE `progress`
+  ADD PRIMARY KEY (`PROGRESS_ID`);
+
+--
+-- Indexes for table `progress_trafo`
+--
+ALTER TABLE `progress_trafo`
+  ADD PRIMARY KEY (`WT_PROGRESS`);
+
+--
+-- Indexes for table `transmisi150`
+--
+ALTER TABLE `transmisi150`
+  ADD PRIMARY KEY (`TR_ID`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `workflow`
+--
+ALTER TABLE `workflow`
+  ADD PRIMARY KEY (`WF_ID`),
+  ADD KEY `FK_PROGID` (`PROGRESS_ID`),
+  ADD KEY `FK_workflowCODGIID` (`CODGI_ID`);
+
+--
+-- Indexes for table `workflow_trafo`
+--
+ALTER TABLE `workflow_trafo`
+  ADD PRIMARY KEY (`WT_ID`),
+  ADD KEY `fk_trid` (`TRAFO_ID`),
+  ADD KEY `FK_WTPRO` (`WT_PROGRESS`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `cod_gi`
+--
+ALTER TABLE `cod_gi`
+  MODIFY `CODGI_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `ext_trafo`
+--
+ALTER TABLE `ext_trafo`
+  MODIFY `TRAFO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `gardu_hubung`
+--
+ALTER TABLE `gardu_hubung`
+  MODIFY `GH_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
+
+--
+-- AUTO_INCREMENT for table `gardu_induk`
+--
+ALTER TABLE `gardu_induk`
+  MODIFY `GI_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+
+--
+-- AUTO_INCREMENT for table `gi_ib`
+--
+ALTER TABLE `gi_ib`
+  MODIFY `IB_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `map`
 --
 ALTER TABLE `map`
-  MODIFY `id_maps` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;COMMIT;
+  MODIFY `id_maps` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `markers`
+--
+ALTER TABLE `markers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `master_status`
+--
+ALTER TABLE `master_status`
+  MODIFY `ID_MS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `progress`
+--
+ALTER TABLE `progress`
+  MODIFY `PROGRESS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `progress_trafo`
+--
+ALTER TABLE `progress_trafo`
+  MODIFY `WT_PROGRESS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `transmisi150`
+--
+ALTER TABLE `transmisi150`
+  MODIFY `TR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
+
+--
+-- AUTO_INCREMENT for table `workflow`
+--
+ALTER TABLE `workflow`
+  MODIFY `WF_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `workflow_trafo`
+--
+ALTER TABLE `workflow_trafo`
+  MODIFY `WT_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `basis_progress`
+--
+ALTER TABLE `basis_progress`
+  ADD CONSTRAINT `FK_BASISEND` FOREIGN KEY (`END`) REFERENCES `progress` (`PROGRESS_ID`),
+  ADD CONSTRAINT `fk_basisstart` FOREIGN KEY (`START`) REFERENCES `progress` (`PROGRESS_ID`);
+
+--
+-- Constraints for table `basis_progresstr`
+--
+ALTER TABLE `basis_progresstr`
+  ADD CONSTRAINT `FK_BASISTREND` FOREIGN KEY (`BASIS_END`) REFERENCES `progress_trafo` (`WT_PROGRESS`),
+  ADD CONSTRAINT `FK_BASISTRSTART` FOREIGN KEY (`BASIS_START`) REFERENCES `progress_trafo` (`WT_PROGRESS`);
+
+--
+-- Constraints for table `gardu_induk`
+--
+ALTER TABLE `gardu_induk`
+  ADD CONSTRAINT `GARDU_INDUK_ibfk_1` FOREIGN KEY (`ID_MS`) REFERENCES `master_status` (`ID_MS`);
+
+--
+-- Constraints for table `gi_ib`
+--
+ALTER TABLE `gi_ib`
+  ADD CONSTRAINT `fk_giib` FOREIGN KEY (`GI_ID`) REFERENCES `gardu_induk` (`GI_ID`);
+
+--
+-- Constraints for table `workflow`
+--
+ALTER TABLE `workflow`
+  ADD CONSTRAINT `FK_PROGID` FOREIGN KEY (`PROGRESS_ID`) REFERENCES `progress` (`PROGRESS_ID`),
+  ADD CONSTRAINT `FK_workflowCODGIID` FOREIGN KEY (`CODGI_ID`) REFERENCES `cod_gi` (`CODGI_ID`);
+
+--
+-- Constraints for table `workflow_trafo`
+--
+ALTER TABLE `workflow_trafo`
+  ADD CONSTRAINT `FK_WTPRO` FOREIGN KEY (`WT_PROGRESS`) REFERENCES `progress_trafo` (`WT_PROGRESS`),
+  ADD CONSTRAINT `fk_trid` FOREIGN KEY (`TRAFO_ID`) REFERENCES `ext_trafo` (`TRAFO_ID`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
