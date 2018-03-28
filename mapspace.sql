@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2018 at 05:10 AM
+-- Generation Time: Mar 28, 2018 at 10:47 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 5.6.34
 
@@ -133,8 +133,8 @@ CREATE TABLE `cod_gi` (
 --
 
 INSERT INTO `cod_gi` (`CODGI_ID`, `CODGI_NAMA`, `CODGI_TEGANGAN`, `CODGI_KETSTATUS`, `CODGI_KAPASITAS`, `CODGI_TAHUN`, `CODGI_WILAYAH`, `CODGI_KOORX`, `CODGI_KOORY`, `CREATED_ON`, `CREATED_BY`, `CODGI_DESKRIPSI`, `CODGI_LOKASI`, `CODGI_TUJUAN`, `CODGI_SUMBERDANA`) VALUES
-(8, 'sdfsdf', 123, 'TIDAK AKTIF', 140, '2018', 'gdf', '534542', '865674', '0000-00-00 00:00:00', '', 'sdgdfd', 'bhg', 'hghjgjh', 'hghj'),
-(9, 'ddf', 150, 'AKTIF', 230, '2018', 'kjhjbh', '8643476', '547667454', '0000-00-00 00:00:00', '', 'hjgkgkhj', 'hgjhgjh', 'hghjgjh', 'hghgh');
+(8, 'sdfsdf', 123, 'TIDAK AKTIF', 140, '2018', 'gdf', '-6.227381', '106.823295', '2018-03-28 15:08:48', '', 'sdgdfd', 'bhg', 'hghjgjh', 'hghj'),
+(9, 'ddf', 150, 'AKTIF', 230, '2018', 'kjhjbh', '-6.193044', '106.820803', '2018-03-28 15:09:31', '', 'hjgkgkhj', 'hgjhgjh', 'hghjgjh', 'hghgh');
 
 -- --------------------------------------------------------
 
@@ -412,57 +412,57 @@ INSERT INTO `gardu_induk` (`GI_ID`, `GI_NAMA`, `GI_ALAMAT`, `GI_KOORX`, `GI_KOOR
 (72, 'ANGKE', 'Jln. Jembatan III Pluit Mas Jakarta Utara', '-6.13429', '106.791341', '021-37854117', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
 (73, 'BEKASI', 'Jl. Kali Abang Bungur Kelurahan Harapan Jaya Bekas', '-6.205022', '106.982926', '', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
 (76, 'CAWANG', 'Jln. Mayjen Sutoyo No. 1 Jakarta Timur', '-6.262807', '106.867081', '021-90604153', 1, 'DISJAYA', 'KRAMAT JATI', NULL, NULL),
-(77, 'CAWANG BARU', 'Jln. Mayjen Sutoyo No. 2 jakarta Timur', '-6.260414', '106.868442', '', 1, 'DISJAYA', 'KRAMAT JATI', NULL, NULL),
+(77, 'CAWANG_BARU', 'Jln. Mayjen Sutoyo No. 2 jakarta Timur', '-6.260414', '106.868442', '', 1, 'DISJAYA', 'KRAMAT JATI', '2018-03-28 11:04:38', NULL),
 (78, 'CENGKARENG', 'Jln. Pembangunan 1 Kecamatan Batu Ceper', '-6.150472', '106.65898', '021-5501300', 1, 'DISJAYA', 'CENGKARENG', NULL, NULL),
 (79, 'CIPINANG', 'Jln. Griya Wartawan No. 10 Jakarta Timur', '-6.232282', '106.881193', '021-99008517', 1, 'DISJAYA', 'JATINEGARA', NULL, NULL),
 (81, 'DANAYASA', 'Jln. Jend. Sudirman Komp. SCBD No. Jakarta Selatan', '-6.22684', '106.805149', '021-32548953', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
-(85, 'BUDI KEMULIAAN', 'Jln. Kemuliaan 10C Jakarta Pusat', '-6.180072', '106.819877', '021-37854125', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(85, 'BUDI_KEMULIAAN', 'Jln. Kemuliaan 10C Jakarta Pusat', '-6.180072', '106.819877', '021-37854125', 1, 'DISJAYA', 'MENTENG', '2018-03-28 11:04:45', NULL),
 (94, 'BINTARO', 'Komplek Bintaro Plaza Bintaro Sektor III', '-6.272764', '106.740307', '021-27318278', 1, 'DISJAYA', 'BINTARO', NULL, NULL),
 (100, 'CSW', 'Jln. Sisingamangaraja No. 1 Jakarta Selatan', '-6.239153', '106.798087', '021-32258461', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
-(102, 'DUKUH ATAS', 'Jln. Halimun No. 2 Jakarta Selatan 12980', '-6.206994', '106.832953', '021-37854105', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
-(113, 'DUREN TIGA', 'Jln. Duren Tiga Selatan Rt 11 / 3 No. 16. 12760. Jak - Sel', '-6.258697', '106.834686', '021-68524549', 1, 'DISJAYA', 'LENTENG AGUNG', NULL, NULL),
-(114, 'DURI KOSAMBI', 'Jln. Raya Duri Kosambi Cengkareng Jakarta Barat', '-6.171019', '106.725904', '', 1, 'DISJAYA', 'CENGKARENG', NULL, NULL),
-(115, 'GAMBIR BARU', 'Jln. Yos Sudarso Pintu Air Jakarta Utara', '-6.163457', '106.879281', '021-36650395', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
-(116, 'GAMBIR LAMA', 'Jln. M.I.R Rais No. 1 Jakarta Pusat 10110', '-6.179859', '106.835126', '021-37854118', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
-(117, 'GANDARIA (GIS)', 'Jln.Masjid Fathul Ghofur Bulak Sereh Cibubur.Jakarta Timur', '-6.3550933', '106.8801119', '021-37854104', 1, 'DISJAYA', 'CIRACAS', NULL, NULL),
+(102, 'DUKUH_ATAS', 'Jln. Halimun No. 2 Jakarta Selatan 12980', '-6.206994', '106.832953', '021-37854105', 1, 'DISJAYA', 'MENTENG', '2018-03-28 11:52:04', NULL),
+(113, 'DUREN_TIGA', 'Jln. Duren Tiga Selatan Rt 11 / 3 No. 16. 12760. Jak - Sel', '-6.258697', '106.834686', '021-68524549', 1, 'DISJAYA', 'LENTENG AGUNG', '2018-03-28 11:52:12', NULL),
+(114, 'DURI_KOSAMBI', 'Jln. Raya Duri Kosambi Cengkareng Jakarta Barat', '-6.171019', '106.725904', '', 1, 'DISJAYA', 'CENGKARENG', '2018-03-28 11:04:57', NULL),
+(115, 'GAMBIR_BARU', 'Jln. Yos Sudarso Pintu Air Jakarta Utara', '-6.163457', '106.879281', '021-36650395', 1, 'DISJAYA', 'MENTENG', '2018-03-28 11:05:03', NULL),
+(116, 'GAMBIR_LAMA', 'Jln. M.I.R Rais No. 1 Jakarta Pusat 10110', '-6.179859', '106.835126', '021-37854118', 1, 'DISJAYA', 'MENTENG', '2018-03-28 11:05:12', NULL),
+(117, 'GANDARIA', 'Jln.Masjid Fathul Ghofur Bulak Sereh Cibubur.Jakarta Timur', '-6.3550933', '106.8801119', '021-37854104', 1, 'DISJAYA', 'CIRACAS', '2018-03-28 11:05:23', NULL),
 (118, 'GANDUL', 'Komplek PLN Gandul Cinere Jakarta Selatan', '-6.343284', '106.787045', '021-94491941', 1, 'DISJAYA', 'CIPUTAT', NULL, NULL),
-(119, 'GEDUNG POLA', 'Jln. Anyer ujung No. 10 Jakarta Pusat', '-6.204084', '106.844688', '021-37854107', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
+(119, 'GEDUNG_POLA', 'Jln. Anyer ujung No. 10 Jakarta Pusat', '-6.204084', '106.844688', '021-37854107', 1, 'DISJAYA', 'MENTENG', '2018-03-28 11:05:33', NULL),
 (120, 'GROGOL', 'Jln. Daan Mogot. Kali Sekertaris Jakarta Barat', '-6.166334', '106.783686', '021-27318595', 1, 'DISJAYA', 'KEBON JERUK', NULL, NULL),
 (121, 'JATIRANGON', 'Jln. Raya Hankam. Jati Murni Bekasi', '-6.327357', '106.92351', '021-37854112', 1, 'DISJAYA', 'PONDOK GEDE', NULL, NULL),
-(122, 'KANDANG SAPI', 'Jln. Raya Cakung Cilincing KM 23', '-6.133735', '106.932898', '021-37854119', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
-(123, 'KARET BARU', 'Jln. Tenaga Listrik No. 1 Kebon Melati Tanah Abang Jak-Pus', '-6.197866', '106.811243', '021-37854126', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
-(124, 'KARET LAMA', 'Jln. Tenaga Listrik No. 1 Kebon Melati Tanah Abang Jak-Pus', '-6.198479', '106.81171', '021-37854109', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
-(125, 'KEBON JERUK', 'Jln. Kemanggisan Raya Kebun Jeruk. Jakarta Barat', '-6.191506', '106.783955', '021-27318841', 1, 'DISJAYA', 'KEBON JERUK', NULL, NULL),
-(126, 'KEBON SIRIH', 'Jln. Kebon Sirih Timur Dalam Jakarta Pusat', '-6.186352', '106.830529', '021-37854122', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
-(127, 'KELAPA GADING', 'Jln. Pegangsaan Dua. Jakarta 14250', '-6.147357', '106.915115', '021-37761797', 1, 'DISJAYA', 'TANJUNG PRIOK', NULL, NULL),
+(122, 'KANDANG_SAPI', 'Jln. Raya Cakung Cilincing KM 23', '-6.133735', '106.932898', '021-37854119', 1, 'DISJAYA', 'MARUNDA', '2018-03-28 11:05:40', NULL),
+(123, 'KARET_BARU', 'Jln. Tenaga Listrik No. 1 Kebon Melati Tanah Abang Jak-Pus', '-6.197866', '106.811243', '021-37854126', 1, 'DISJAYA', 'MENTENG', '2018-03-28 11:05:47', NULL),
+(124, 'KARET_LAMA', 'Jln. Tenaga Listrik No. 1 Kebon Melati Tanah Abang Jak-Pus', '-6.198479', '106.81171', '021-37854109', 1, 'DISJAYA', 'MENTENG', '2018-03-28 11:05:51', NULL),
+(125, 'KEBON_JERUK', 'Jln. Kemanggisan Raya Kebun Jeruk. Jakarta Barat', '-6.191506', '106.783955', '021-27318841', 1, 'DISJAYA', 'KEBON JERUK', '2018-03-28 11:52:53', NULL),
+(126, 'KEBON_SIRIH', 'Jln. Kebon Sirih Timur Dalam Jakarta Pusat', '-6.186352', '106.830529', '021-37854122', 1, 'DISJAYA', 'MENTENG', '2018-03-28 11:52:58', NULL),
+(127, 'KELAPA_GADING', 'Jln. Pegangsaan Dua. Jakarta 14250', '-6.147357', '106.915115', '021-37761797', 1, 'DISJAYA', 'TANJUNG PRIOK', '2018-03-28 11:55:32', NULL),
 (128, 'KEMANG', 'Jln. Pejaten Barat No. 100 Jakarta Selatan', '-6.279432', '106.828157', '021-34140415', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
 (129, 'KEMAYORAN', 'Jln. Kriya Utama No. 1 lapangan Golf Kemayoran Jak - Pus', '-6.1405597', '106.8522992', '021-36650485', 1, 'DISJAYA', 'TANJUNG PRIOK', NULL, NULL),
 (130, 'KEMBANGAN', 'Jln. Pasar Minggu Kembangan Selatan. Jakarta Barat', '-6.18788', '106.720223', '021-26192496', 1, 'DISJAYA', 'KEBON JERUK', NULL, NULL),
 (131, 'KETAPANG', 'Jln. Jainul Arifin No. 20 Belakang PN Gas Jakarta Barat', '-6.159469', '106.814403', '021-6338967', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
-(132, 'MAMPANG BARU', 'Jln. KH. Abd Rohim Kuningan Barat Jakarta Selatan', '-6.235564', '106.821385', '021-68887998', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
-(133, 'MANGGA BESAR', 'Jln. Mangga Besar Raya Lokasari Jakarta Barat', '-6.147674', '106.822128', '021-37744216', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
+(132, 'MAMPANG_BARU', 'Jln. KH. Abd Rohim Kuningan Barat Jakarta Selatan', '-6.235564', '106.821385', '021-68887998', 1, 'DISJAYA', 'BULUNGAN', '2018-03-28 11:53:08', NULL),
+(133, 'MANGGA_BESAR', 'Jln. Mangga Besar Raya Lokasari Jakarta Barat', '-6.147674', '106.822128', '021-37744216', 1, 'DISJAYA', 'BANDENGAN', '2018-03-28 11:53:13', NULL),
 (134, 'MANGGARAI', 'Jln. Dr Saharjo No. 3 dan 4 Jakarta Selatan', '-6.213172', '106.845924', '021-83702550', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
 (135, 'MARUNDA', 'Jln. Sungai Tirem No. 1 Cilincing Jakarta Utara', '-6.117848', '106.955021', '021-37854106', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
 (136, 'MINIATUR', 'Jln. Wisata TMII. Jakarta Timur', '-6.29935', '106.89767', '021-92690932', 1, 'DISJAYA', 'KRAMAT JATI', NULL, NULL),
-(137, 'MUARA KARANG', 'Jln. Raya Pluit Utara Jakarta Utara', '-6.110293', '106.781326', '021-37890936', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
-(138, 'NEW SENAYAN', 'Jln. Cidodol Raya No. Jakarta Selatan', '-6.227517', '106.771684', '021-26717669', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
+(137, 'MUARA_KARANG', 'Jln. Raya Pluit Utara Jakarta Utara', '-6.110293', '106.781326', '021-37890936', 1, 'DISJAYA', 'BANDENGAN', '2018-03-28 11:53:21', NULL),
+(138, 'NEW_SENAYAN', 'Jln. Cidodol Raya No. Jakarta Selatan', '-6.227517', '106.771684', '021-26717669', 1, 'DISJAYA', 'BULUNGAN', '2018-03-28 11:53:26', NULL),
 (139, 'PEGANGSAAN', 'Jln. Pegangsaan II Pulo Gadung Jakarta Timur', '-6.178373', '106.917657', '021-36650487', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
 (140, 'PENGGILINGAN', 'Jln. Sentra Primer Walikota Jakarta Timur', '-6.202005', '106.944442', '021-36650526', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
 (141, 'PETUKANGAN', 'Jln. Adam Malik Pondok Aren Tangerang', '-6.253039', '106.74366', '021-27318553', 1, 'DISJAYA', 'KEBON JERUK', NULL, NULL),
 (142, 'PLUMPANG', 'Jln. Raya Plumpang No. 1 Jakarta Utara', '-6.130519', '106.895183', '021-27318590', 1, 'DISJAYA', 'TANJUNG PRIOK', NULL, NULL),
-(143, 'PONDOK INDAH', 'Jln. Lebak Bulus Raya.Jakarta 12330', '-6.29253', '106.770874', '', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
-(144, 'PONDOK KELAPA', 'Jln. Kamp Setu Bintara Jaya Bekasi Barat', '-6.242768', '106.95531', '021-36650486', 1, 'DISJAYA', 'PONDOK KOPI', NULL, NULL),
-(145, 'PRIOK TIMUR', 'JL KETEL no1', '-6.111005', '106.8655', '', 1, 'DISJAYA', 'TANJUNG PRIOK', NULL, NULL),
+(143, 'PONDOK_INDAH', 'Jln. Lebak Bulus Raya.Jakarta 12330', '-6.29253', '106.770874', '', 1, 'DISJAYA', 'BULUNGAN', '2018-03-28 11:53:36', NULL),
+(144, 'PONDOK_KELAPA', 'Jln. Kamp Setu Bintara Jaya Bekasi Barat', '-6.242768', '106.95531', '021-36650486', 1, 'DISJAYA', 'PONDOK KOPI', '2018-03-28 11:53:40', NULL),
+(145, 'PRIOK_TIMUR', 'JL KETEL no1', '-6.111005', '106.8655', '', 1, 'DISJAYA', 'TANJUNG PRIOK', '2018-03-28 11:53:50', NULL),
 (146, 'PULOGADUNG', 'Jln. Raya Bekasi KM 21 Jakarta Timur', '-6.184024', '106.917759', '021-36650397', 1, 'DISJAYA', 'CEMPAKA PUTIH', NULL, NULL),
 (147, 'PULOMAS', 'Jln. Rawamangun Muka Selatan No. 1 Jakarta Timur', '-6.201287', '106.879964', '021-36650484', 1, 'DISJAYA', 'CEMPAKA PUTIH', NULL, NULL),
 (148, 'SENAYAN', 'Jln. Asia Afrika No 1 PLTD Senayan. Jakarta Selatan', '-6.21579', '106.794442', '021-37299501', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL),
-(149, 'SETIA BUDI', 'Jln. Perbanas Rasuna Said kuningan Jakarta Selatan', '-6.218812', '106.82929', '021-37851420', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
-(150, 'TAMAN RASUNA', 'Jln. Jaya Mandala 1 Rt 08 / 01 Kel Menteng Dalam. Jak - Sel', '-6.239454', '106.839184', '021-26144171', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
-(151, 'TANAH TINGGI', 'JL. RAYA PRAMUKA', '-6.19168', '106.868677', '', 1, 'DISJAYA', 'MENTENG', NULL, NULL),
-(152, 'KAPUK (PIK)', 'Jl. Pantai Indah Selatan 1', '-6.123892', '106.751295', '', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
-(153, 'GUNUNG SAHARI (GIS)', 'Jln. Gunung Sahari Raya. Pademangan', '-6.131045', '106.831553', '021-6494967', 1, 'DISJAYA', 'BANDENGAN', NULL, NULL),
-(154, 'HARAPAN INDAH (GIS)', 'Jln. Taruma Jaya No.60. Pusaka Rakyat', '-6.148083', '106.981932', '', 1, 'DISJAYA', 'MARUNDA', NULL, NULL),
-(155, 'BINTARO 2 / PONDOK AREN (GIS)', 'Perumahan Kebayoran Heights Sektor VII. Bintaro', '-6.270889', '106.711333', '', 1, 'DISJAYA', 'BINTARO', NULL, NULL),
+(149, 'SETIA_BUDI', 'Jln. Perbanas Rasuna Said kuningan Jakarta Selatan', '-6.218812', '106.82929', '021-37851420', 1, 'DISJAYA', 'MENTENG', '2018-03-28 11:53:53', NULL),
+(150, 'TAMAN_RASUNA', 'Jln. Jaya Mandala 1 Rt 08 / 01 Kel Menteng Dalam. Jak - Sel', '-6.239454', '106.839184', '021-26144171', 1, 'DISJAYA', 'MENTENG', '2018-03-28 11:54:04', NULL),
+(151, 'TANAH_TINGGI', 'JL. RAYA PRAMUKA', '-6.19168', '106.868677', '', 1, 'DISJAYA', 'MENTENG', '2018-03-28 11:54:08', NULL),
+(152, 'KAPUK', 'Jl. Pantai Indah Selatan 1', '-6.123892', '106.751295', '', 1, 'DISJAYA', 'BANDENGAN', '2018-03-28 11:54:23', NULL),
+(153, 'GUNUNG_SAHARI', 'Jln. Gunung Sahari Raya. Pademangan', '-6.131045', '106.831553', '021-6494967', 1, 'DISJAYA', 'BANDENGAN', '2018-03-28 11:54:19', NULL),
+(154, 'HARAPAN_INDAH', 'Jln. Taruma Jaya No.60. Pusaka Rakyat', '-6.148083', '106.981932', '', 1, 'DISJAYA', 'MARUNDA', '2018-03-28 11:54:41', NULL),
+(155, 'BINTARO2', 'Perumahan Kebayoran Heights Sektor VII. Bintaro', '-6.270889', '106.711333', '', 1, 'DISJAYA', 'BINTARO', '2018-03-28 11:54:54', NULL),
 (156, 'ANTASARI', 'Jln. Kemang Selatan XII', '-6.27284', '106.81359 ', '', 1, 'DISJAYA', 'BULUNGAN', NULL, NULL);
 
 -- --------------------------------------------------------
