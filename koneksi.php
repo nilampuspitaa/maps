@@ -1,6 +1,9 @@
 <?php 
-define('DB_HOST', 'localhost');
-	define('DB_USER', 'root');
-	define('DB_PASS', '');
-	define('DB_NAME', 'map');
+$SERVER="localhost";
+$username="root";
+$password="";
+$database="mapspace";
+
+$conn=mysqli_connect($SERVER,$username,$password);
+mysqli_select_db($conn,$database);
  ?>
